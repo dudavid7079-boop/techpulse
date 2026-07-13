@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "startedAt": "2026-07-07T09:54:48.771Z",
+  "finishedAt": "2026-07-07T09:54:59.939Z",
+  "recentHours": 168,
+  "mode": "estimated",
+  "discoveredCount": 53,
+  "candidateCount": 53,
+  "topicCount": 20,
+  "sources": [
+    "rss-baseline-estimated"
+  ],
+  "completedSteps": [
+    "Video Discovery",
+    "Metrics Sync",
+    "Topic Ranking",
+    "Frontend Export",
+    "Notification Preview"
+  ],
+  "topTopics": [
+    {
+      "rank": 1,
+      "topicZh": "Réinventer l'expérience beauté grâce à l'IA",
+      "channel": "OpenAI",
+      "score": 23753,
+      "mainVideoId": "sLYXRA5Ay9g"
+    },
+    {
+      "rank": 2,
+      "topicZh": "What does an AI-native future look like for one of the world's largest automotive marketplaces?",
+      "channel": "OpenAI",
+      "score": 17124,
+      "mainVideoId": "0x4KRxmRGz4"
+    },
+    {
+      "rank": 3,
+      "topicZh": "Swimming Against Man-Made Waves",
+      "channel": "Linus Tech Tips",
+      "score": 2672,
+      "mainVideoId": "m0F9Ar35WrA"
+    },
+    {
+      "rank": 4,
+      "topicZh": "I Hate These...",
+      "channel": "Linus Tech Tips",
+      "score": 2471,
+      "mainVideoId": "S82W3hWDvZA"
+    },
+    {
+      "rank": 5,
+      "topicZh": "Building an Android app in AI Studio",
+      "channel": "Google Developers",
+      "score": 1828,
+      "mainVideoId": "KwJwYIqDMLY"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "techpulse-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python3 -m http.server 8102 --bind 127.0.0.1",
+    "runtime:init": "node pipeline/init-runtime-data.mjs",
+    "check": "node --check app.js && node --check auth.js && node --check pricing.js && node --check search.js && node --check subscribe.js && node --check topics.js && node --check products.js && node --check channels.js && node --check admin.js && node --check account.js && node --check data-loader.js && node --check product-loader.js && node --check product-data.js && node --check product-data.generated.js && node --check playback-config.js && node --check analytics-config.js && node --check analytics.js && node --check pipeline/init-runtime-data.mjs && node --check pipeline/discover-products.mjs && node --check pipeline/check-invidious.mjs && node --check pipeline/collect-product-signals.mjs && node --check pipeline/build-products.mjs",
+    "validate": "node pipeline/validate-site.mjs",
+    "prelaunch": "npm run runtime:init && npm run check && npm run validate",
+    "domain:set": "node pipeline/set-production-domain.mjs",
+    "pipeline:demo": "node pipeline/run-local-demo.mjs",
+    "pipeline:preview": "RSS_RECENT_HOURS=168 node pipeline/run-real-preview.mjs",
+    "pipeline:refresh": "RSS_RECENT_HOURS=168 node pipeline/run-real-preview.mjs && node pipeline/discover-products.mjs && node pipeline/collect-product-signals.mjs pipeline/product-seeds.generated.json && node pipeline/build-products.mjs pipeline/product-seeds.generated.json && npm run prelaunch",
+    "channels:test": "RSS_RECENT_HOURS=168 node pipeline/test-channel.mjs pipeline/channels.sample.json pipeline/channel-tests.json",
+    "invidious:check": "node pipeline/check-invidious.mjs"
+  }
+}

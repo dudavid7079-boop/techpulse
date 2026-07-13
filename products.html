@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 产品雷达 - TechPulse</title>
+    <meta name="description" content="TechPulse AI 产品雷达，把 GitHub、社区讨论和海外视频摘要聚合成中文产品情报卡。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse AI 产品雷达" />
+    <meta property="og:description" content="一个地方，看透一个全球 AI 产品。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse AI 产品雷达" />
+    <meta name="twitter:description" content="一个地方，看透一个全球 AI 产品。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/products.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/products.html" />
+    <meta name="techpulse-release" content="20260712-product-radar-v2" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body class="product-page">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#products">产品雷达</a>
+        <a href="./index.html#hot">视频热榜</a>
+        <a href="./search.html">搜索</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./subscribe.html">订阅</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero product-hero">
+        <div class="product-hero-copy">
+          <span class="section-label">Product Intelligence</span>
+          <h1>一个地方，看透一个全球 AI 产品。</h1>
+          <p>围绕产品实体聚合 GitHub 仓库、Hacker News 讨论、中文视频摘要和风险判断，帮助你快速判断是否值得试用、跟进或纳入竞品研究。</p>
+        </div>
+        <aside class="product-hero-panel" aria-label="当前数据源">
+          <span>Live sources</span>
+          <strong>GitHub + Hacker News + Video Proof</strong>
+          <p>当前 MVP 暂不接 Product Hunt API，优先保证工程师社区和源码生态可读。</p>
+        </aside>
+      </section>
+
+      <section class="product-signal-strip" id="productSignalStrip" aria-label="产品雷达摘要">
+        <article>
+          <span>产品实体</span>
+          <b>05</b>
+          <p>当前产品雷达覆盖 Cursor、Claude Code、MCP、Lovable 等核心 AI 产品。</p>
+        </article>
+        <article>
+          <span>GitHub</span>
+          <b>Live</b>
+          <p>展示相关仓库、stars、forks、最近活跃时间和源码生态变化。</p>
+        </article>
+        <article>
+          <span>Hacker News</span>
+          <b>HN</b>
+          <p>汇总工程师社区讨论、points、comments 和主要争议线索。</p>
+        </article>
+        <article>
+          <span>Video Proof</span>
+          <b>摘要</b>
+          <p>保留海外视频中文摘要作为产品演示证据，而不是依赖直接播放。</p>
+        </article>
+      </section>
+
+      <section class="product-workbench">
+        <aside class="product-directory" aria-label="AI 产品列表">
+          <span class="section-label">Today's Signal Radar</span>
+          <div class="product-filter-bar">
+            <label>
+              <span>搜索</span>
+              <input id="productSearch" type="search" placeholder="产品、分类、关键词" />
+            </label>
+            <label>
+              <span>分类</span>
+              <select id="productCategory"></select>
+            </label>
+            <label class="product-watch-filter">
+              <input id="watchOnly" type="checkbox" />
+              <span>只看已关注</span>
+            </label>
+          </div>
+          <div id="productDirectory">
+            <button class="active" type="button">
+              <b>01</b>
+              <span>
+                <strong>Model Context Protocol</strong>
+                <small>AI Infra · GitHub / HN 信号强</small>
+              </span>
+            </button>
+            <button type="button">
+              <b>02</b>
+              <span>
+                <strong>Cursor</strong>
+                <small>AI Coding · 产品讨论活跃</small>
+              </span>
+            </button>
+            <button type="button">
+              <b>03</b>
+              <span>
+                <strong>Claude Code</strong>
+                <small>AI Agent · 工程师关注高</small>
+              </span>
+            </button>
+          </div>
+        </aside>
+        <article class="product-detail" id="productDetail">
+          <div class="product-detail-head">
+            <div>
+              <span class="section-label">AI Infra</span>
+              <h2>Model Context Protocol</h2>
+              <p>让模型连接工具、数据源和业务系统的开放协议。</p>
+            </div>
+            <div class="signal-score">
+              <span>Signal</span>
+              <b>98</b>
+              <small>GitHub + HN</small>
+            </div>
+          </div>
+          <section class="quick-take">
+            <h3>3 秒看懂</h3>
+            <p>MCP 是 Agent 应用从演示走向可用的关键连接层。短期热度来自工具集成，长期价值取决于权限、安全审计和企业系统接入标准化。</p>
+            <div class="product-tags">
+              <span>GitHub 生态强</span>
+              <span>社区讨论活跃</span>
+              <span>2 条视频证明</span>
+            </div>
+          </section>
+          <section class="signal-mix">
+            <article>
+              <span>GitHub</span>
+              <b>38%</b>
+              <p>3 个相关仓库，累计 124738 stars。</p>
+            </article>
+            <article>
+              <span>社区讨论</span>
+              <b>31%</b>
+              <p>5 条 HN 讨论，累计 94 条评论。</p>
+            </article>
+            <article>
+              <span>视频证明</span>
+              <b>25%</b>
+              <p>已有可读中文视频摘要，可作为产品实机证明。</p>
+            </article>
+            <article>
+              <span>新鲜度</span>
+              <b>10%</b>
+              <p>按最近 24-72 小时新增信号加权。</p>
+            </article>
+          </section>
+          <section class="source-evidence">
+            <article>
+              <div class="compact-heading">
+                <span class="section-label">GitHub Signal</span>
+                <h3>源码生态与项目活跃度</h3>
+                <p>展示仓库 stars、forks、issues 和最近 push 时间，判断技术生态是否真实活跃。</p>
+              </div>
+              <div class="source-list">
+                <a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="noreferrer">
+                  <strong>modelcontextprotocol/servers</strong>
+                  <span>88.3K stars · 11.2K forks · 2026/7/10</span>
+                  <p>Model Context Protocol Servers</p>
+                </a>
+                <a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank" rel="noreferrer">
+                  <strong>modelcontextprotocol/typescript-sdk</strong>
+                  <span>12.8K stars · 2K forks · 2026/7/11</span>
+                  <p>The official TypeScript SDK for Model Context Protocol servers and clients.</p>
+                </a>
+              </div>
+            </article>
+            <article>
+              <div class="compact-heading">
+                <span class="section-label">Hacker News Signal</span>
+                <h3>工程师社区讨论</h3>
+                <p>展示 HN points、comments 和原帖链接，判断产品是否进入工程师真实讨论场。</p>
+              </div>
+              <div class="source-list">
+                <a href="https://news.ycombinator.com/item?id=48819808" target="_blank" rel="noreferrer">
+                  <strong>Show HN: Rowboat - open-source local-first alternative to Claude Desktop</strong>
+                  <span>217 points · 94 comments · 2026/7/8</span>
+                </a>
+                <a href="https://news.ycombinator.com/item?id=48866070" target="_blank" rel="noreferrer">
+                  <strong>MCPA: The first official certification for Model Context Protocol</strong>
+                  <span>1 point · 0 comments · 2026/7/11</span>
+                </a>
+              </div>
+            </article>
+          </section>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>AI 产品雷达 MVP</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./data-loader.js"></script>
+    <script src="./product-loader.js?v=20260712-runtime-cache"></script>
+    <script src="./auth.js"></script>
+    <script src="./products.js?v=20260712-product-radar"></script>
+  </body>
+</html>

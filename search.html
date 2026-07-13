@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>搜索 - TechPulse</title>
+    <meta name="description" content="搜索海外科技与 AI 视频话题、频道和关键词。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/search.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/search.html" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pipeline.html">算法</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./subscribe.html">订阅</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <span class="section-label">Search Archive</span>
+        <h1>搜索话题、频道和关键词</h1>
+        <p>热榜解决“今天看什么”，搜索页解决“我想追踪某个模型、产品或创作者”。</p>
+      </section>
+
+      <section class="search-console">
+        <div class="search-controls">
+          <label>
+            <span>关键词</span>
+            <input id="archiveQuery" type="search" placeholder="OpenAI / AI PC / MKBHD" autofocus />
+          </label>
+          <label>
+            <span>分类</span>
+            <select id="archiveCategory">
+              <option value="all">全部</option>
+              <option value="AI">AI</option>
+              <option value="Devices">数码硬件</option>
+              <option value="Platform">平台生态</option>
+              <option value="Review">评测</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="archiveSort">
+              <option value="score">热度</option>
+              <option value="recent">最新</option>
+              <option value="quality">质量分</option>
+            </select>
+          </label>
+        </div>
+        <div class="archive-results" id="archiveResults"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>搜索</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./data-loader.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./search.js"></script>
+  </body>
+</html>

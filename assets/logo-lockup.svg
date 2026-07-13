@@ -1,0 +1,30 @@
+<svg width="720" height="520" viewBox="0 0 720 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">TechPulse brand lockup</title>
+  <desc id="desc">The TechPulse connected AI figures logo with English and Chinese brand names.</desc>
+  <defs>
+    <linearGradient id="lockupLine" x1="218" y1="280" x2="502" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0767A8"/>
+      <stop offset="0.42" stop-color="#1769FF"/>
+      <stop offset="0.72" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#B14CFF"/>
+    </linearGradient>
+    <linearGradient id="lockupPerson" x1="310" y1="175" x2="415" y2="275" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B5E9E"/>
+      <stop offset="0.52" stop-color="#1769FF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="520" rx="36" fill="#F8FAFC"/>
+  <circle cx="304" cy="128" r="53" fill="#F8FAFC" stroke="url(#lockupLine)" stroke-width="27"/>
+  <circle cx="416" cy="128" r="53" fill="#F8FAFC" stroke="url(#lockupLine)" stroke-width="27"/>
+  <path d="M330 202C291 181 242 211 232 265C223 316 252 354 294 343C335 332 322 270 357 239" stroke="url(#lockupLine)" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M390 202C429 181 478 211 488 265C497 316 468 354 426 343C385 332 398 270 363 239" stroke="url(#lockupLine)" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M298 266C322 256 342 243 358 229" stroke="url(#lockupLine)" stroke-width="21" stroke-linecap="round"/>
+  <path d="M422 266C398 256 378 243 362 229" stroke="url(#lockupLine)" stroke-width="21" stroke-linecap="round"/>
+  <circle cx="313" cy="237" r="21" fill="url(#lockupPerson)"/>
+  <path d="M286 325C291 281 315 263 346 279C358 285 364 297 361 311" fill="url(#lockupPerson)"/>
+  <circle cx="407" cy="237" r="21" fill="url(#lockupPerson)"/>
+  <path d="M434 325C429 281 405 263 374 279C362 285 356 297 359 311" fill="url(#lockupPerson)"/>
+  <text x="360" y="424" text-anchor="middle" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-1">TechPulse</text>
+  <text x="360" y="482" text-anchor="middle" fill="#1F2937" font-family="'Noto Sans SC', 'PingFang SC', sans-serif" font-size="42" font-weight="800">科技脉动</text>
+</svg>

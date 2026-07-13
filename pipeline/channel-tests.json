@@ -1,0 +1,364 @@
+{
+  "generatedAt": "2026-07-08T01:42:02.647Z",
+  "recentHours": 168,
+  "count": 13,
+  "okCount": 12,
+  "results": [
+    {
+      "channelId": "UCXZCJLdBC09xxGZ6gcdrc6A",
+      "name": "OpenAI",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:52.011Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 10,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "pE1ljLVY1Rg",
+          "title": "MUFG aims to become AI-native with OpenAI",
+          "publishedAt": "2026-07-08T00:02:05+00:00"
+        },
+        {
+          "videoId": "mC8nKdQbbO4",
+          "title": "How TPG Is Accelerating Investment Research with ChatGPT",
+          "publishedAt": "2026-07-07T17:33:50+00:00"
+        },
+        {
+          "videoId": "SRXJevuTnNI",
+          "title": "How TPG Is Accelerating Investment Research with ChatGPT",
+          "publishedAt": "2026-07-07T17:15:23+00:00"
+        },
+        {
+          "videoId": "sLYXRA5Ay9g",
+          "title": "Réinventer l'expérience beauté grâce à l'IA",
+          "publishedAt": "2026-07-07T09:01:40+00:00"
+        },
+        {
+          "videoId": "0x4KRxmRGz4",
+          "title": "What does an AI-native future look like for one of the world's largest automotive marketplaces?",
+          "publishedAt": "2026-07-07T08:23:39+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCbfYPyITQ-7l4upoX8nvctg",
+      "name": "Two Minute Papers",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:57.185Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 3,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "1yBU41auQhw",
+          "title": "DeepSeek's New AI Speed Hack Is Amazing",
+          "publishedAt": "2026-07-07T16:33:29+00:00"
+        },
+        {
+          "videoId": "uO5cvkzh3P0",
+          "title": "They Said This Will Never Run In Real Time",
+          "publishedAt": "2026-07-03T17:19:59+00:00"
+        },
+        {
+          "videoId": "qks6dGQFd_c",
+          "title": "AI Just Entered A New Era",
+          "publishedAt": "2026-07-01T05:23:54+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCsBjURrPoezykLs9EqgamOA",
+      "name": "Fireship",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:57.676Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 1,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "7B0ydm64cV8",
+          "title": "The weird history of the internet...",
+          "publishedAt": "2026-07-01T16:33:28+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "name": "Google Developers",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:57.993Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 8,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "5MFWcubNvtM",
+          "title": "POV: You’re at I/O Connect Berlin",
+          "publishedAt": "2026-07-07T16:17:06+00:00"
+        },
+        {
+          "videoId": "KwJwYIqDMLY",
+          "title": "Building an Android app in AI Studio",
+          "publishedAt": "2026-07-07T04:00:19+00:00"
+        },
+        {
+          "videoId": "KIp8PAU3oAI",
+          "title": "Create agent skills for on-device generative AI (I/O Connect ‘26)",
+          "publishedAt": "2026-07-06T22:00:15+00:00"
+        },
+        {
+          "videoId": "WZvd1tUreTY",
+          "title": "Dynamic Callbacks on Android for Google Pay",
+          "publishedAt": "2026-07-06T21:10:53+00:00"
+        },
+        {
+          "videoId": "nRLZqaNOrwQ",
+          "title": "Build creative apps with the GenMedia suite (I/O Connect ‘26)",
+          "publishedAt": "2026-07-06T18:14:45+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCJS9pqu9BzkAMNTmzNMNhvg",
+      "name": "Google Cloud Tech",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:58.309Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 7,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "COTv_if0yPo",
+          "title": "AI Studio, Cloud SQL, and Firestore: How to vibe-code like a pro",
+          "publishedAt": "2026-07-07T17:08:33+00:00"
+        },
+        {
+          "videoId": "B1gcZnDjuU0",
+          "title": "Debugging an AI agent like a football match ⚽",
+          "publishedAt": "2026-07-06T19:00:09+00:00"
+        },
+        {
+          "videoId": "6ERUGFurDHY",
+          "title": "Intent-driven development with Claude Code & Fable 5",
+          "publishedAt": "2026-07-06T16:00:10+00:00"
+        },
+        {
+          "videoId": "cMUOCFijiTA",
+          "title": "Make AI agent execute 80% faster ⏱️🏆",
+          "publishedAt": "2026-07-01T19:00:11+00:00"
+        },
+        {
+          "videoId": "G7olcqETSn8",
+          "title": "How to speed up AI agents by 80% on the Gemini Enterprise Agent Platform",
+          "publishedAt": "2026-07-01T15:59:06+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCE_M8A5yxnLfW0KghEeajjw",
+      "name": "Apple",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:58.768Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 1,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "qN2yR8ZpEMk",
+          "title": "Animate your Live Stickers. Tip from Claudia at the Apple Store.",
+          "publishedAt": "2026-07-07T16:02:02+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCBJycsmduvYEL83R_U4JriQ",
+      "name": "Marques Brownlee",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:59.093Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 2,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "DUgPFNRmsCQ",
+          "title": "Nothing Phone 4b: They Can't Say It!",
+          "publishedAt": "2026-07-07T10:31:42+00:00"
+        },
+        {
+          "videoId": "7KRabLH7jcE",
+          "title": "The Best Car I've Ever Driven: McLaren W1",
+          "publishedAt": "2026-07-02T20:42:45+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+      "name": "Linus Tech Tips",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:59.399Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 6,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "m0F9Ar35WrA",
+          "title": "Swimming Against Man-Made Waves",
+          "publishedAt": "2026-07-06T17:45:47+00:00"
+        },
+        {
+          "videoId": "S82W3hWDvZA",
+          "title": "I Hate These...",
+          "publishedAt": "2026-07-06T16:53:00+00:00"
+        },
+        {
+          "videoId": "VEaI8OUcMvM",
+          "title": "The 1000 FPS Gaming PC",
+          "publishedAt": "2026-07-04T16:58:46+00:00"
+        },
+        {
+          "videoId": "ryqF6ECSoBA",
+          "title": "Sony Announces End of Physical Discs",
+          "publishedAt": "2026-07-03T20:45:14+00:00"
+        },
+        {
+          "videoId": "AQZl-78pnEQ",
+          "title": "Tech House Cabling Ended Up Being a HARD Choice",
+          "publishedAt": "2026-07-02T16:56:30+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCsTcErHg8oDvUnTzoqsYeNw",
+      "name": "Unbox Therapy",
+      "status": "active",
+      "testedAt": "2026-07-08T01:41:59.762Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 1,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "nqQO7uJK5aU",
+          "title": "Want to Build Your Own Product?",
+          "publishedAt": "2026-07-03T15:15:44+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCMiJRAwDNSNzuYeN2uWa0pA",
+      "name": "Mrwhosetheboss",
+      "status": "active",
+      "testedAt": "2026-07-08T01:42:00.261Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 1,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "n18t1XfRWJQ",
+          "title": "How I wasted $52,000 in my Dream Smart Home",
+          "publishedAt": "2026-07-07T12:12:16+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UCVYamHliCI9rw1tHR1xbkfw",
+      "name": "Dave2D",
+      "status": "active",
+      "testedAt": "2026-07-08T01:42:00.562Z",
+      "source": "web",
+      "ok": false,
+      "videoCount": 0,
+      "rssStatus": 200,
+      "webStatus": 200,
+      "sampleVideos": [],
+      "error": "No recent videos parsed from channel page."
+    },
+    {
+      "channelId": "UCddiUEpeqJcYeBxX1IVBKvQ",
+      "name": "The Verge",
+      "status": "active",
+      "testedAt": "2026-07-08T01:42:02.020Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 15,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "kK25IzLTWRo",
+          "title": "What’s next for Xbox #Vergecast",
+          "publishedAt": "2026-07-07T21:40:40+00:00"
+        },
+        {
+          "videoId": "8WEgL5xCTak",
+          "title": "The life-changing magic of touching stuff | The Vergecast",
+          "publishedAt": "2026-07-07T19:03:42+00:00"
+        },
+        {
+          "videoId": "yTwXmJ88T9Q",
+          "title": "Inherited Instincts [Partner content from STEMforBugs]",
+          "publishedAt": "2026-07-06T20:12:21+00:00"
+        },
+        {
+          "videoId": "o_d4q1G4HtI",
+          "title": "Was the Trump phone assembled in the US? #Vergecast",
+          "publishedAt": "2026-07-06T19:00:05+00:00"
+        },
+        {
+          "videoId": "yoKVcLJYpps",
+          "title": "We got the Trump phone. #Vergecast",
+          "publishedAt": "2026-07-06T17:52:47+00:00"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "channelId": "UC9-y-6csu5WGm29I7JiwpnA",
+      "name": "Computerphile",
+      "status": "active",
+      "testedAt": "2026-07-08T01:42:02.355Z",
+      "source": "rss",
+      "ok": true,
+      "videoCount": 1,
+      "rssStatus": 200,
+      "webStatus": null,
+      "sampleVideos": [
+        {
+          "videoId": "-0HRzXk8vlk",
+          "title": "Why AI Tokens are so Expensive - Computerphile",
+          "publishedAt": "2026-07-02T14:26:37+00:00"
+        }
+      ],
+      "error": ""
+    }
+  ]
+}

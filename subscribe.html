@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>订阅中心 - TechPulse</title>
+    <meta name="description" content="订阅海外科技与 AI 视频频道、关键词和每日中文快报。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/subscribe.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/subscribe.html" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pipeline.html">算法</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./auth.html?reason=subscribe">注册/登录</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <span class="section-label">Signal Subscription</span>
+        <h1>订阅产品信号与每日科技快报</h1>
+        <p>选择你关注的 AI 产品、关键词和推送时间。TechPulse 会把海外产品信号、视频摘要和社区争议整理成中文快报。</p>
+      </section>
+
+      <section class="subscription-layout">
+        <form class="subscription-panel" id="subscriptionForm">
+          <span class="section-label">Preferences</span>
+          <div class="watchlist-preview" id="watchlistPreview"></div>
+          <label>
+            <span>推送渠道</span>
+            <select id="deliveryChannel">
+              <option>Telegram Bot</option>
+              <option>企业微信 API</option>
+              <option>微信公众号模板消息</option>
+              <option>Email Digest</option>
+            </select>
+          </label>
+          <label>
+            <span>关键词 / 产品</span>
+            <input id="keywordInput" type="text" value="OpenAI, MKBHD, AI Agents" />
+          </label>
+          <label>
+            <span>推送时间</span>
+            <select id="digestTime">
+              <option>08:30 每日中文快报</option>
+              <option>12:30 午间热榜更新</option>
+              <option>20:30 晚间复盘</option>
+            </select>
+          </label>
+          <button type="submit">保存订阅偏好</button>
+          <p id="subscriptionNotice">保存后可在“我的账户”查看订阅偏好。</p>
+        </form>
+
+        <aside class="subscription-preview">
+          <span class="section-label">Preview</span>
+          <h2>明早你会收到什么</h2>
+          <div id="digestPreview"></div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>订阅中心</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./data-loader.js"></script>
+    <script src="./product-loader.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./subscribe.js"></script>
+  </body>
+</html>

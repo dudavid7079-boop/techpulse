@@ -1,0 +1,17 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/data.generated.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+/pipeline/*.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+/*.html
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600

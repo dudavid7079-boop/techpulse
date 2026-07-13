@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>算法 - TechPulse</title>
+    <meta name="description" content="TechPulse 的 RSS 发现、YouTube API 同步、热度评分、AI 话题聚类和摘要生成技术方案。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/pipeline.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/pipeline.html" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pipeline.html">算法</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./subscribe.html">订阅</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <span class="section-label">Aggregation Blueprint</span>
+        <h1>从来源池到每日 Top 20 的自动化生产线</h1>
+        <p>这页把网站背后的内容工程拆开：哪些任务低成本跑、哪些任务消耗 API 配额、哪些任务交给大模型，以及哪些结果需要人工审核。</p>
+      </section>
+
+      <section class="engine-map">
+        <article>
+          <span>01</span>
+          <h2>来源</h2>
+          <p>维护 50-100 个高质量来源，按 AI 官方、研究者、科技媒体、数码评测、开发者频道分组，并给核心来源更高优先级。</p>
+          <code>channels.json</code>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>RSS 发现</h2>
+          <p>每 2 小时读取 YouTube RSS，发现 24 小时内新视频，写入候选池。这个阶段不消耗 YouTube Data API 配额。</p>
+          <code>discover-rss.mjs</code>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>指标同步</h2>
+          <p>每 6 小时批量调用 videos:list，只查询候选队列中的视频，拿到播放、点赞、评论、发布时间等核心指标。</p>
+          <code>sync-metrics.mjs</code>
+        </article>
+        <article>
+          <span>04</span>
+          <h2>热度排序</h2>
+          <p>用半衰期公式计算分数，避免老视频长期霸榜，同时让新发布但互动很强的内容快速进入候选。</p>
+          <code>score-topics.mjs</code>
+        </article>
+        <article>
+          <span>05</span>
+          <h2>AI 聚类</h2>
+          <p>把前 40 条候选交给 Qwen/DeepSeek，合并同一产品、同一模型、同一发布会的重复内容，输出不超过 20 个核心话题。</p>
+          <code>cluster-prompt.md</code>
+        </article>
+        <article>
+          <span>06</span>
+          <h2>摘要与推送</h2>
+          <p>拉取字幕，生成中文摘要和关键时间点；每天 08:30 推送给订阅用户，失败任务进入重试队列。</p>
+          <code>daily-digest.json</code>
+        </article>
+      </section>
+
+      <section class="schema-section">
+        <div>
+          <span class="section-label">Data Model</span>
+          <h2>建议数据库表</h2>
+        </div>
+        <div class="schema-grid">
+          <article><b>channels</b><p>来源名称、分类、优先级、最近同步时间和可用状态。</p></article>
+          <article><b>videos</b><p>videoId、频道、标题、简介、发布时间、指标快照、字幕状态。</p></article>
+          <article><b>topic_clusters</b><p>中文话题名、主视频、关联视频、AI 聚类理由、审核状态。</p></article>
+          <article><b>summaries</b><p>视频摘要、关键时间点、字幕语言、模型版本、生成时间。</p></article>
+          <article><b>subscriptions</b><p>用户标识、频道订阅、关键词、推送渠道、推送时间。</p></article>
+          <article><b>job_runs</b><p>任务名、开始/结束时间、状态、错误原因、处理条数。</p></article>
+        </div>
+      </section>
+
+      <section class="cron-section">
+        <span class="section-label">Cron Schedule</span>
+        <h2>推荐任务节奏</h2>
+        <div class="cron-table">
+          <div><b>每 2 小时</b><span>RSS 发现新视频</span><p>低成本运行，持续更新候选池。</p></div>
+          <div><b>每 6 小时</b><span>YouTube API 指标同步</span><p>批量查询候选池，控制 Quota。</p></div>
+          <div><b>每 12 小时</b><span>热度评分重算</span><p>更新排序，处理发布时间衰减。</p></div>
+          <div><b>每天 08:00</b><span>AI 聚类与摘要</span><p>生成中文 Top 20 和详情页内容。</p></div>
+          <div><b>每天 08:30</b><span>订阅推送</span><p>Telegram、企业微信或邮件发送。</p></div>
+        </div>
+      </section>
+
+      <section class="script-section">
+        <span class="section-label">Runnable Scripts</span>
+        <h2>已准备的脚本雏形</h2>
+        <div class="script-grid">
+          <article><code>discover-rss.mjs</code><p>读取频道 RSS，输出发现的视频候选。</p></article>
+          <article><code>sync-metrics.mjs</code><p>调用 YouTube Data API v3 同步播放、点赞、评论。</p></article>
+          <article><code>score-topics.mjs</code><p>按热度半衰期公式排序候选视频。</p></article>
+          <article><code>build-digest.mjs</code><p>生成每日中文快报 JSON，等待 AI 摘要接入。</p></article>
+          <article><code>push-digest.mjs</code><p>推送 Telegram；未配置 token 时输出预览。</p></article>
+          <article><code>cluster-prompt.md</code><p>给 Qwen/DeepSeek 的话题聚类 Prompt。</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>Aggregation engine blueprint</span>
+    </footer>
+    <script src="./auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+[
+  {
+    "channelId": "UCXZCJLdBC09xxGZ6gcdrc6A",
+    "name": "OpenAI",
+    "category": "AI",
+    "weight": 1.35,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXZCJLdBC09xxGZ6gcdrc6A",
+    "handle": "@OpenAI",
+    "webUrl": "https://www.youtube.com/@OpenAI/videos"
+  },
+  {
+    "channelId": "UCbfYPyITQ-7l4upoX8nvctg",
+    "name": "Two Minute Papers",
+    "category": "AI",
+    "weight": 1.15,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
+    "handle": "@TwoMinutePapers",
+    "webUrl": "https://www.youtube.com/@TwoMinutePapers/videos"
+  },
+  {
+    "channelId": "UCsBjURrPoezykLs9EqgamOA",
+    "name": "Fireship",
+    "category": "AI",
+    "weight": 1.16,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA",
+    "handle": "@Fireship",
+    "webUrl": "https://www.youtube.com/@Fireship/videos"
+  },
+  {
+    "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    "name": "Google Developers",
+    "category": "Platform",
+    "weight": 1.1,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    "handle": "@GoogleDevelopers",
+    "webUrl": "https://www.youtube.com/@GoogleDevelopers/videos"
+  },
+  {
+    "channelId": "UCJS9pqu9BzkAMNTmzNMNhvg",
+    "name": "Google Cloud Tech",
+    "category": "Platform",
+    "weight": 1.08,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJS9pqu9BzkAMNTmzNMNhvg",
+    "handle": "@googlecloudtech",
+    "webUrl": "https://www.youtube.com/@googlecloudtech/videos"
+  },
+  {
+    "channelId": "UCE_M8A5yxnLfW0KghEeajjw",
+    "name": "Apple",
+    "category": "Platform",
+    "weight": 1.2,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCE_M8A5yxnLfW0KghEeajjw",
+    "handle": "@Apple",
+    "webUrl": "https://www.youtube.com/@Apple/videos"
+  },
+  {
+    "channelId": "UCBJycsmduvYEL83R_U4JriQ",
+    "name": "Marques Brownlee",
+    "category": "Review",
+    "weight": 1.3,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ",
+    "handle": "@mkbhd",
+    "webUrl": "https://www.youtube.com/@mkbhd/videos"
+  },
+  {
+    "channelId": "UCXuqSBlHAE6Xw-yeJA0Tunw",
+    "name": "Linus Tech Tips",
+    "category": "Devices",
+    "weight": 1.18,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw",
+    "handle": "@LinusTechTips",
+    "webUrl": "https://www.youtube.com/@LinusTechTips/videos"
+  },
+  {
+    "channelId": "UCsTcErHg8oDvUnTzoqsYeNw",
+    "name": "Unbox Therapy",
+    "category": "Review",
+    "weight": 0.9,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsTcErHg8oDvUnTzoqsYeNw",
+    "handle": "@unboxtherapy",
+    "webUrl": "https://www.youtube.com/@unboxtherapy/videos"
+  },
+  {
+    "channelId": "UCMiJRAwDNSNzuYeN2uWa0pA",
+    "name": "Mrwhosetheboss",
+    "category": "Review",
+    "weight": 1.22,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMiJRAwDNSNzuYeN2uWa0pA",
+    "handle": "@Mrwhosetheboss",
+    "webUrl": "https://www.youtube.com/@Mrwhosetheboss/videos"
+  },
+  {
+    "channelId": "UCVYamHliCI9rw1tHR1xbkfw",
+    "name": "Dave2D",
+    "category": "Review",
+    "weight": 1,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVYamHliCI9rw1tHR1xbkfw",
+    "handle": "@Dave2D",
+    "webUrl": "https://www.youtube.com/@Dave2D/videos"
+  },
+  {
+    "channelId": "UCddiUEpeqJcYeBxX1IVBKvQ",
+    "name": "The Verge",
+    "category": "Platform",
+    "weight": 1.05,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCddiUEpeqJcYeBxX1IVBKvQ",
+    "handle": "@TheVerge",
+    "webUrl": "https://www.youtube.com/@TheVerge/videos"
+  },
+  {
+    "channelId": "UC9-y-6csu5WGm29I7JiwpnA",
+    "name": "Computerphile",
+    "category": "AI",
+    "weight": 1,
+    "status": "active",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA",
+    "handle": "@Computerphile",
+    "webUrl": "https://www.youtube.com/@Computerphile/videos"
+  }
+]

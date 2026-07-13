@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>注册 / 登录 - TechPulse</title>
+    <meta name="description" content="注册 TechPulse，解锁完整中文摘要、关键时间点、历史搜索和订阅推送。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/auth.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/auth.html" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pipeline.html">算法</a>
+        <a href="./pricing.html">会员</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="auth-page">
+        <div class="auth-copy">
+          <span class="section-label">Free Account</span>
+          <h1>注册后，每天 5 分钟读完海外科技重点。</h1>
+          <p>未注册也可以看 Top 20 榜单。注册后解锁完整摘要、关键时间点、历史搜索、频道订阅和每日推送。</p>
+          <div class="benefit-grid">
+            <article><b>01</b><span>完整 300 字中文摘要</span></article>
+            <article><b>02</b><span>关键时间点目录</span></article>
+            <article><b>03</b><span>搜索完整历史归档</span></article>
+            <article><b>04</b><span>保存频道和关键词订阅</span></article>
+          </div>
+        </div>
+
+        <form class="auth-card" id="authForm">
+          <span class="section-label">Create Account</span>
+          <label>
+            <span>邮箱</span>
+            <input id="authEmail" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            <span>你最关注的方向</span>
+            <select id="authInterest">
+              <option>AI 模型与应用</option>
+              <option>手机与数码评测</option>
+              <option>开发者工具</option>
+              <option>平台生态与商业趋势</option>
+            </select>
+          </label>
+          <button type="submit">注册并解锁</button>
+          <p id="authReasonNotice">免费注册后，可保存订阅偏好、会员等待名单和阅读进度。</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>注册/登录</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./auth.js"></script>
+  </body>
+</html>

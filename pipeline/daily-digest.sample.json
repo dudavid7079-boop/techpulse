@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-07-07T05:13:43.525Z",
+  "gravity": 1.65,
+  "candidateCount": 3,
+  "topics": [
+    {
+      "rank": 1,
+      "topicZh": "Flagship phone camera review",
+      "heatLevel": "S",
+      "mainVideoId": "aqz-KE-bpKQ",
+      "relatedVideoIds": [],
+      "score": 32942,
+      "channel": "Marques Brownlee",
+      "summaryZh": "这条来自 Marques Brownlee 的视频正在获得较高互动。当前热度分为 32942，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 2,
+      "topicZh": "AI coding agents enter the IDE war",
+      "heatLevel": "S",
+      "mainVideoId": "2ePf9rue1Ao",
+      "relatedVideoIds": [],
+      "score": 12974,
+      "channel": "AI Explained",
+      "summaryZh": "这条来自 AI Explained 的视频正在获得较高互动。当前热度分为 12974，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 3,
+      "topicZh": "YouTube Data API pipeline walkthrough",
+      "heatLevel": "S",
+      "mainVideoId": "F_tm2qxcUAI",
+      "relatedVideoIds": [],
+      "score": 9770,
+      "channel": "Data Automation Lab",
+      "summaryZh": "这条来自 Data Automation Lab 的视频正在获得较高互动。当前热度分为 9770，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    }
+  ]
+}

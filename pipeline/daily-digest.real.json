@@ -1,0 +1,207 @@
+{
+  "generatedAt": "2026-07-07T09:54:59.839Z",
+  "gravity": 1.65,
+  "candidateCount": 40,
+  "topics": [
+    {
+      "rank": 1,
+      "topicZh": "Réinventer l'expérience beauté grâce à l'IA",
+      "heatLevel": "S",
+      "mainVideoId": "sLYXRA5Ay9g",
+      "relatedVideoIds": [],
+      "score": 23753,
+      "channel": "OpenAI",
+      "summaryZh": "这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 23753，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 2,
+      "topicZh": "What does an AI-native future look like for one of the world's largest automotive marketplaces?",
+      "heatLevel": "S",
+      "mainVideoId": "0x4KRxmRGz4",
+      "relatedVideoIds": [],
+      "score": 17124,
+      "channel": "OpenAI",
+      "summaryZh": "这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 17124，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 3,
+      "topicZh": "Swimming Against Man-Made Waves",
+      "heatLevel": "S",
+      "mainVideoId": "m0F9Ar35WrA",
+      "relatedVideoIds": [],
+      "score": 2672,
+      "channel": "Linus Tech Tips",
+      "summaryZh": "这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 2672，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 4,
+      "topicZh": "I Hate These...",
+      "heatLevel": "A",
+      "mainVideoId": "S82W3hWDvZA",
+      "relatedVideoIds": [],
+      "score": 2471,
+      "channel": "Linus Tech Tips",
+      "summaryZh": "这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 2471，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 5,
+      "topicZh": "Building an Android app in AI Studio",
+      "heatLevel": "A",
+      "mainVideoId": "KwJwYIqDMLY",
+      "relatedVideoIds": [],
+      "score": 1828,
+      "channel": "Google Developers",
+      "summaryZh": "这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 1828，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 6,
+      "topicZh": "Builders Unscripted: Ep. 5 - Derya Unutmaz",
+      "heatLevel": "A",
+      "mainVideoId": "4sexN3yE8xg",
+      "relatedVideoIds": [],
+      "score": 1431,
+      "channel": "OpenAI",
+      "summaryZh": "这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 1431，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 7,
+      "topicZh": "Thomson Reuters CEO Steve Hasker swears by this AI Routine",
+      "heatLevel": "A",
+      "mainVideoId": "sha3EL1ngN8",
+      "relatedVideoIds": [],
+      "score": 882,
+      "channel": "OpenAI",
+      "summaryZh": "这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 882，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 8,
+      "topicZh": "Create agent skills for on-device generative AI (I/O Connect ‘26)",
+      "heatLevel": "A",
+      "mainVideoId": "KIp8PAU3oAI",
+      "relatedVideoIds": [],
+      "score": 720,
+      "channel": "Google Developers",
+      "summaryZh": "这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 720，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 9,
+      "topicZh": "Dynamic Callbacks on Android for Google Pay",
+      "heatLevel": "A",
+      "mainVideoId": "WZvd1tUreTY",
+      "relatedVideoIds": [],
+      "score": 655,
+      "channel": "Google Developers",
+      "summaryZh": "这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 655，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 10,
+      "topicZh": "AI Studio, Cloud SQL, and Firestore: How to vibe-code like a pro",
+      "heatLevel": "A",
+      "mainVideoId": "COTv_if0yPo",
+      "relatedVideoIds": [],
+      "score": 591,
+      "channel": "Google Cloud Tech",
+      "summaryZh": "这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 591，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 11,
+      "topicZh": "Inherited Instincts [Partner content from STEMforBugs]",
+      "heatLevel": "B",
+      "mainVideoId": "yTwXmJ88T9Q",
+      "relatedVideoIds": [],
+      "score": 537,
+      "channel": "The Verge",
+      "summaryZh": "这条来自 The Verge 的视频正在获得较高互动。当前热度分为 537，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 12,
+      "topicZh": "Debugging an AI agent like a football match ⚽",
+      "heatLevel": "B",
+      "mainVideoId": "B1gcZnDjuU0",
+      "relatedVideoIds": [],
+      "score": 503,
+      "channel": "Google Cloud Tech",
+      "summaryZh": "这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 503，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 13,
+      "topicZh": "Build creative apps with the GenMedia suite (I/O Connect ‘26)",
+      "heatLevel": "B",
+      "mainVideoId": "nRLZqaNOrwQ",
+      "relatedVideoIds": [],
+      "score": 486,
+      "channel": "Google Developers",
+      "summaryZh": "这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 486，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 14,
+      "topicZh": "Build agents with Gemini API (I/O Connect ‘26)",
+      "heatLevel": "B",
+      "mainVideoId": "d9LAQWKUnx8",
+      "relatedVideoIds": [],
+      "score": 485,
+      "channel": "Google Developers",
+      "summaryZh": "这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 485，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 15,
+      "topicZh": "Was the Trump phone assembled in the US? #Vergecast",
+      "heatLevel": "B",
+      "mainVideoId": "o_d4q1G4HtI",
+      "relatedVideoIds": [],
+      "score": 475,
+      "channel": "The Verge",
+      "summaryZh": "这条来自 The Verge 的视频正在获得较高互动。当前热度分为 475，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 16,
+      "topicZh": "We got the Trump phone. #Vergecast",
+      "heatLevel": "B",
+      "mainVideoId": "yoKVcLJYpps",
+      "relatedVideoIds": [],
+      "score": 428,
+      "channel": "The Verge",
+      "summaryZh": "这条来自 The Verge 的视频正在获得较高互动。当前热度分为 428，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 17,
+      "topicZh": "Intent-driven development with Claude Code & Fable 5",
+      "heatLevel": "B",
+      "mainVideoId": "6ERUGFurDHY",
+      "relatedVideoIds": [],
+      "score": 384,
+      "channel": "Google Cloud Tech",
+      "summaryZh": "这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 384，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 18,
+      "topicZh": "We finally have a Trump Phone | The Vergecast Livestream",
+      "heatLevel": "B",
+      "mainVideoId": "Jqr9q-_Rvyw",
+      "relatedVideoIds": [],
+      "score": 357,
+      "channel": "The Verge",
+      "summaryZh": "这条来自 The Verge 的视频正在获得较高互动。当前热度分为 357，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 19,
+      "topicZh": "The 1000 FPS Gaming PC",
+      "heatLevel": "B",
+      "mainVideoId": "VEaI8OUcMvM",
+      "relatedVideoIds": [],
+      "score": 104,
+      "channel": "Linus Tech Tips",
+      "summaryZh": "这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 104，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    },
+    {
+      "rank": 20,
+      "topicZh": "Sony Announces End of Physical Discs",
+      "heatLevel": "B",
+      "mainVideoId": "ryqF6ECSoBA",
+      "relatedVideoIds": [],
+      "score": 51,
+      "channel": "Linus Tech Tips",
+      "summaryZh": "这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 51，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。"
+    }
+  ]
+}

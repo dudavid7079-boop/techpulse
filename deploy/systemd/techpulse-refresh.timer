@@ -1,0 +1,11 @@
+[Unit]
+Description=Run TechPulse daily topic refresh
+
+[Timer]
+OnCalendar=*-*-* 08:05:00
+AccuracySec=1min
+Persistent=true
+Unit=techpulse-refresh.service
+
+[Install]
+WantedBy=timers.target

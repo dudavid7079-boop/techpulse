@@ -1,0 +1,35 @@
+[
+  {
+    "videoId": "F_tm2qxcUAI",
+    "title": "YouTube Data API pipeline walkthrough",
+    "channel": "Data Automation Lab",
+    "category": "AI",
+    "publishedHours": 5.5,
+    "views": 186000,
+    "likes": 9200,
+    "comments": 1480,
+    "channelWeight": 1.1
+  },
+  {
+    "videoId": "2ePf9rue1Ao",
+    "title": "AI coding agents enter the IDE war",
+    "channel": "AI Explained",
+    "category": "AI",
+    "publishedHours": 7.2,
+    "views": 312000,
+    "likes": 18000,
+    "comments": 2600,
+    "channelWeight": 1.18
+  },
+  {
+    "videoId": "aqz-KE-bpKQ",
+    "title": "Flagship phone camera review",
+    "channel": "Marques Brownlee",
+    "category": "Review",
+    "publishedHours": 10.8,
+    "views": 1240000,
+    "likes": 76000,
+    "comments": 8100,
+    "channelWeight": 1.3
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "name": "TechPulse",
+  "status": "ok",
+  "site": "static-mvp",
+  "dataSource": "data.generated.js",
+  "pipelineStatus": "./pipeline/job-status.json",
+  "refreshStatus": "./pipeline/refresh-status.json",
+  "channelHealth": "./pipeline/channel-tests.json"
+}

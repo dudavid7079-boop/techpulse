@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">TechPulse Pulse Core logo</title>
+  <desc id="desc">A rounded technology mark with a heartbeat pulse forming a T and P monogram.</desc>
+  <rect x="5" y="5" width="54" height="54" rx="15" fill="#111827"/>
+  <path d="M17 18H36" stroke="#F8FAFC" stroke-width="5" stroke-linecap="round"/>
+  <path d="M26.5 18V45" stroke="#F8FAFC" stroke-width="5" stroke-linecap="round"/>
+  <path d="M35 42V20H43.5C49.2 20 52.5 23.5 52.5 28.4C52.5 33.4 49.2 36.8 43.5 36.8H35" stroke="#1769FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 39H19.4L23 31.8L29.3 49L34.6 36.6H43.5" stroke="#13A36D" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46.5" cy="36.6" r="2.9" fill="#13A36D"/>
+</svg>

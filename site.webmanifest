@@ -1,0 +1,22 @@
+{
+  "name": "TechPulse 科技脉动",
+  "short_name": "TechPulse",
+  "description": "同步全球科技，AI一触即达。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#1769ff",
+  "icons": [
+    {
+      "src": "./assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+services:
+  techpulse:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    command: caddy file-server --root /srv/techpulse --listen :80
+    ports:
+      - "${TECHPULSE_BIND:-127.0.0.1}:${TECHPULSE_PORT:-8103}:80"
+    volumes:
+      - ./:/srv/techpulse:ro
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/health.json"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

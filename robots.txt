@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /logo-options.html
+
+Sitemap: https://techpulse.attodigitalhk.com/sitemap.xml

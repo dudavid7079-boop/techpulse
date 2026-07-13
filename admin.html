@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>运营后台 - TechPulse</title>
+    <meta name="description" content="TechPulse 的抓取、热度计算、AI 加工与发布审核后台。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/admin.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/admin.html" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pipeline.html">算法</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./subscribe.html">订阅</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero admin-hero">
+        <span class="section-label">Operations Console</span>
+        <h1>抓取、计算、AI 加工与发布审核</h1>
+        <p>这是给运营者和开发者看的内部控制台，用来观察 Pipeline 是否健康、候选视频质量，以及每日榜单是否需要人工干预。</p>
+      </section>
+
+      <section class="data-source-panel">
+        <div>
+          <span class="section-label">Data Source</span>
+          <h2>当前前端数据源</h2>
+          <p id="dataSourceDescription">用于在固定演示数据和 Pipeline 生成数据之间切换。</p>
+        </div>
+        <div class="source-actions">
+          <a class="button secondary" href="./admin.html?source=demo">Demo 数据</a>
+          <a class="button primary" href="./admin.html?source=generated">Pipeline 生成数据</a>
+          <a class="button secondary" href="./index.html">查看首页</a>
+        </div>
+      </section>
+
+      <section class="admin-metrics">
+        <article><span>RSS 轮询</span><b>正常</b><p>84 个频道，最近运行 18 分钟前。</p></article>
+        <article><span>API Quota</span><b>22%</b><p>今日已用配额，仍可安全同步候选池。</p></article>
+        <article><span>AI 摘要</span><b>31/40</b><p>9 条等待字幕或模型任务重试。</p></article>
+        <article><span>发布状态</span><b>12</b><p>已通过审核的话题数量。</p></article>
+      </section>
+
+      <section class="product-ops-board">
+        <div class="section-heading compact-heading">
+          <span class="section-label">Product Radar Ops</span>
+          <h2>产品信号运营面板</h2>
+          <p>用于判断今天哪些 AI 产品值得重点跟踪，以及哪些档案还缺视频证明或社区证据。</p>
+        </div>
+        <div class="product-ops-grid" id="productOpsGrid"></div>
+      </section>
+
+      <section class="admin-layout">
+        <div class="job-board">
+          <span class="section-label">Pipeline Jobs</span>
+          <div id="jobList"></div>
+        </div>
+        <div class="review-board">
+          <span class="section-label">Review Queue</span>
+          <div id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>运营后台</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./data-loader.js"></script>
+    <script src="./product-loader.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./admin.js"></script>
+  </body>
+</html>

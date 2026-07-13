@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TechPulse - 海外科技 & AI 视频中文聚合</title>
+    <meta
+      name="description"
+      content="面向中文用户的海外 AI 与科技视频聚合站，自动筛选 YouTube 科技频道热门话题，生成中文摘要、播放路由和创作者订阅。"
+    />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="TechPulse 首页">
+        <img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" />
+        <span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#products">产品雷达</a>
+        <a href="#hot">视频热榜</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="#pipeline">算法</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pricing.html">会员</a>
+        <a class="nav-cta" href="./subscribe.html">订阅</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Global AI Product Radar</p>
+          <p class="brand-slogan">TechPulse 同步全球科技，AI一触即达。</p>
+          <h1>每天 8 点，看透全球 AI 产品信号。</h1>
+          <p class="hero-intro">
+            TechPulse 2.0 把海外视频情报升级为 AI 产品雷达：围绕产品实体聚合视频摘要、社区讨论、GitHub 生态和趋势信号，
+            帮中文用户判断一个产品是否值得试用、跟进或纳入竞品研究。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#products" data-analytics-event="home_product_radar_click" data-analytics-action="hero">查看产品雷达</a>
+            <a class="button secondary" href="#hot" data-analytics-event="home_hotlist_click" data-analytics-action="hero">查看视频热榜</a>
+            <a class="button secondary" href="#pipeline" data-analytics-event="home_pipeline_click" data-analytics-action="hero">了解聚合算法</a>
+          </div>
+        </div>
+        <aside class="hero-dashboard" aria-label="今日聚合状态">
+          <div class="screen-bar">
+            <span></span><span></span><span></span>
+            <strong>Live Digest</strong>
+          </div>
+          <div class="pulse-grid">
+            <div>
+              <b id="statTopics">20</b>
+              <span>视频话题</span>
+            </div>
+            <div>
+              <b id="statProducts">05</b>
+              <span>产品实体</span>
+            </div>
+            <div>
+              <b>6h</b>
+              <span>指标同步</span>
+            </div>
+            <div>
+              <b>300</b>
+              <span>字中文摘要</span>
+            </div>
+          </div>
+          <div class="signal-card">
+            <span>HOTTEST NOW</span>
+            <strong id="heroTopic">Cursor, Claude Code and MCP lead the AI workflow stack</strong>
+            <p id="heroSummary">今日雷达把视频证明、开发者讨论和产品信号合并到同一张情报卡里，优先判断产品价值而不是单纯追视频播放。</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="ticker" aria-label="核心能力">
+        <span>Product Entity Radar</span>
+        <b>/</b>
+        <span>RSS 轮询</span>
+        <b>/</b>
+        <span>YouTube Data API v3</span>
+        <b>/</b>
+        <span>View Velocity Decay</span>
+        <b>/</b>
+        <span>Qwen Topic Clustering</span>
+        <b>/</b>
+        <span>官方嵌入播放 + 备用线路监控</span>
+      </section>
+
+      <section class="home-status" id="pipelineStatus" aria-label="数据源与频道健康状态"></section>
+
+      <section id="products" class="section product-radar-section">
+        <div class="section-heading">
+          <span class="section-label">Today's Signal Radar</span>
+          <h2>从“看视频”升级为“看产品”。</h2>
+          <p>每个产品实体都汇总视频证明、Hacker News 讨论、GitHub 技术生态和风险判断。当前 GitHub 与 HN 信号已接入，Product Hunt API 暂缓。</p>
+        </div>
+        <div class="product-radar-grid" id="productRadar"></div>
+        <div class="radar-footer-action">
+          <a class="button primary" href="./products.html" data-analytics-event="product_radar_more_click" data-analytics-action="home_products">打开完整产品雷达</a>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="热榜筛选">
+        <div>
+          <span class="section-label">Video Intelligence</span>
+          <h2>今日海外科技 & AI 视频证明</h2>
+        </div>
+        <div class="controls">
+          <label>
+            <span>分类</span>
+            <select id="categoryFilter">
+              <option value="all">全部</option>
+              <option value="AI">AI</option>
+              <option value="Devices">数码硬件</option>
+              <option value="Platform">平台生态</option>
+              <option value="Review">评测</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="sortMode">
+              <option value="score">热度评分</option>
+              <option value="recent">发布时间</option>
+              <option value="comments">讨论量</option>
+            </select>
+          </label>
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="OpenAI / MKBHD / Vision" />
+          </label>
+        </div>
+      </section>
+
+      <section id="hot" class="hot-layout">
+        <div class="topic-list" id="topicList" aria-live="polite"></div>
+        <aside class="player-panel" aria-label="视频播放与摘要">
+          <div class="player-shell">
+            <iframe
+              id="videoFrame"
+              title="聚合视频播放器"
+              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="route-card">
+            <span class="section-label">Smart Route</span>
+            <h3 id="playerTitle">选择一个话题开始播放</h3>
+            <p id="playerRoute">默认使用 YouTube 官方 no-cookie 嵌入播放；自建 Invidious 备用线路通过健康检查后开放。</p>
+            <div class="route-actions">
+              <a id="invidiousLink" class="button compact primary disabled" href="#" target="_blank" rel="noreferrer" aria-disabled="true">备用线路检测中</a>
+              <a id="youtubeLink" class="button compact secondary" href="#" target="_blank" rel="noreferrer">YouTube 原站</a>
+            </div>
+          </div>
+          <div class="summary-card">
+            <span class="section-label">AI 中文快报摘要</span>
+            <p id="playerSummary">点击左侧热榜卡片后，这里会展示 300 字结构化中文摘要、关键时间点和关联参考视频。</p>
+            <ul id="chapterList"></ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="pipeline" class="section pipeline">
+        <div class="section-heading">
+          <span class="section-label">Aggregation Engine</span>
+          <h2>不用 Trending API，也能低成本筛出每日 Top 20。</h2>
+          <p>
+            站点采用“定向来源池监控 + 数据加权清洗 + AI 话题归纳”。RSS 负责发现，Data API 只查询候选视频，
+            最后用半衰期热度公式和大模型聚类减少重复评测占屏。
+          </p>
+        </div>
+        <div class="pipeline-grid">
+          <article>
+            <b>01</b>
+            <h3>RSS 轻量轮询</h3>
+            <p>每 2 小时拉取频道 RSS，发现 24 小时内新视频，写入候选队列，不消耗 YouTube API Quota。</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>指标同步</h3>
+            <p>每 6 小时批量调用 videos:list，获取 viewCount、likeCount、commentCount 和发布时间。</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>热度半衰期</h3>
+            <p>Score = (V + 5L + 10C) / (T + 2)^G，新视频获得冲榜机会，老视频会自然衰减。</p>
+          </article>
+          <article>
+            <b>04</b>
+            <h3>AI 话题聚类</h3>
+            <p>把前 40 个候选交给 Qwen/DeepSeek，合并同一产品发布、评测或争议事件，输出 20 个核心话题。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="channels" class="section channel-section">
+        <div class="section-heading">
+          <span class="section-label">Channel Pool</span>
+          <h2>初始监控池：AI 先锋 + 综合科技评测。</h2>
+        </div>
+        <div class="channel-grid" id="channelGrid"></div>
+      </section>
+
+      <section id="subscribe" class="subscribe-section">
+        <div>
+          <span class="section-label">Retention</span>
+          <h2>订阅你关心的创作者，新视频自动推送。</h2>
+          <p>网页端保存订阅偏好，后续可接 Telegram Bot、企业微信或微信服务号，把新视频、中文摘要和关键时间点推给用户。</p>
+        </div>
+        <form class="subscribe-form">
+          <label>
+            <span>推送渠道</span>
+            <select>
+              <option>Telegram Bot</option>
+              <option>企业微信 API</option>
+              <option>微信公众号模板消息</option>
+            </select>
+          </label>
+          <label>
+            <span>关键词</span>
+            <input type="text" value="OpenAI, MKBHD, AI Agents" />
+          </label>
+          <a class="button primary" href="./subscribe.html">进入订阅中心</a>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>Built for overseas AI & tech video aggregation</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./data-loader.js"></script>
+    <script src="./product-loader.js?v=20260712-runtime-cache"></script>
+    <script src="./playback-config.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">TechPulse AI Pulse Loop logo</title>
+  <desc id="desc">A friendly blue AI loop mark with a reversed upper-right node and subtle heartbeat signal.</desc>
+  <defs>
+    <linearGradient id="aiLoopBlue" x1="15" y1="18" x2="49" y2="47" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16D9FF"/>
+      <stop offset="0.45" stop-color="#1769FF"/>
+      <stop offset="1" stop-color="#2446D8"/>
+    </linearGradient>
+    <linearGradient id="aiNodeReverse" x1="37" y1="12" x2="47" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2446D8"/>
+      <stop offset="1" stop-color="#16D9FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="5" width="54" height="54" rx="16" fill="#F8FAFC"/>
+  <path d="M19.4 41.1C19.4 31.7 26.6 27.7 32 33.3C37.4 27.7 44.6 31.7 44.6 41.1C44.6 47 38.6 49 32 40.6C25.4 49 19.4 47 19.4 41.1Z" stroke="url(#aiLoopBlue)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.4 24.9C19.4 19 25.4 17 32 25.4C38.6 17 44.6 19 44.6 24.9C44.6 34.3 37.4 38.3 32 32.7C26.6 38.3 19.4 34.3 19.4 24.9Z" stroke="url(#aiLoopBlue)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.3 33.1H24.2L26.9 28.7L31.8 39.1L36.5 31H43.7" stroke="#1769FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="22" cy="17.5" r="4.5" fill="#F8FAFC" stroke="#1769FF" stroke-width="3.4"/>
+  <circle cx="42" cy="17.5" r="5.2" fill="url(#aiNodeReverse)"/>
+  <circle cx="42" cy="17.5" r="2.2" fill="#F8FAFC"/>
+  <circle cx="46.2" cy="33.1" r="2.4" fill="#1769FF"/>
+</svg>

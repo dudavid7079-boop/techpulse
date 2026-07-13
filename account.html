@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的账户 - TechPulse</title>
+    <meta name="description" content="查看 TechPulse 账户状态、订阅偏好、解锁权益和使用情况。" />
+    <link rel="icon" href="./assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#1769ff" />
+    <meta property="og:title" content="TechPulse 科技脉动" />
+    <meta property="og:description" content="同步全球科技，AI一触即达。" />
+    <meta property="og:site_name" content="TechPulse 科技脉动" />
+    <meta property="og:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechPulse 科技脉动" />
+    <meta name="twitter:description" content="同步全球科技，AI一触即达。" />
+    <meta name="twitter:image" content="https://techpulse.attodigitalhk.com/assets/og-image.png" />
+    <link rel="canonical" href="https://techpulse.attodigitalhk.com/account.html" />
+    <meta property="og:url" content="https://techpulse.attodigitalhk.com/account.html" />
+    <link rel="stylesheet" href="./styles.css?v=20260712-actions-v2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="./assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
+      <nav aria-label="主导航">
+        <a href="./index.html#hot">Top 20</a>
+        <a href="./search.html">搜索</a>
+        <a href="./topics.html">话题库</a>
+        <a href="./channels.html">来源</a>
+        <a href="./pricing.html">会员</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="account-hero" id="accountHero"></section>
+      <section class="account-layout">
+        <div class="account-main">
+          <section class="account-panel">
+            <span class="section-label">Unlocked</span>
+            <h2>当前已解锁权益</h2>
+            <div class="entitlement-grid">
+              <article><b>Top 20</b><span>全部话题详情</span></article>
+              <article><b>300 字</b><span>完整中文摘要</span></article>
+              <article><b>时间点</b><span>关键目录可查看</span></article>
+              <article><b>搜索</b><span>完整历史结果</span></article>
+            </div>
+          </section>
+
+          <section class="account-panel">
+            <span class="section-label">Subscription</span>
+            <h2>订阅偏好</h2>
+            <div id="accountSubscription"></div>
+          </section>
+        </div>
+
+        <aside class="account-side">
+          <section class="account-panel">
+            <span class="section-label">Usage</span>
+            <h2>本周使用</h2>
+            <div class="usage-list">
+              <div><span>查看详情</span><b>18 / 50</b></div>
+              <div><span>历史搜索</span><b>7 / 20</b></div>
+              <div><span>推送订阅</span><b>3 / 10</b></div>
+            </div>
+          </section>
+          <section class="account-panel upgrade-card">
+            <span class="section-label">Upgrade</span>
+            <h2>需要团队版？</h2>
+            <p>团队版适合科技媒体、投资研究、产品团队和跨境业务团队，共享来源池和每日快报。</p>
+            <a class="button primary" href="./pricing.html" data-analytics-event="account_upgrade_click" data-analytics-action="account_side">查看会员方案</a>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TechPulse · 科技脉动</span>
+      <span>我的账户</span>
+    </footer>
+
+    <script src="./analytics-config.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./product-loader.js"></script>
+    <script src="./account.js"></script>
+  </body>
+</html>
