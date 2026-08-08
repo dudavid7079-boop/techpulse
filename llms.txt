@@ -1,0 +1,58 @@
+# TechPulse 科技脉动
+
+TechPulse 是一个面向中文用户的全球 AI 产品雷达和海外科技视频情报站。它聚合 GitHub、Hacker News、公开视频摘要和信号分，帮助用户判断 AI 产品是否值得试用、跟进或研究。
+
+Last updated: 2026-07-07T09:54:59.839Z
+
+## Core pages
+- Home: https://techpulse.attodigitalhk.com/
+- Product radar: https://techpulse.attodigitalhk.com/products.html
+- Search: https://techpulse.attodigitalhk.com/search.html
+- Methodology: https://techpulse.attodigitalhk.com/pipeline.html
+
+## Product intelligence pages
+- Cursor: https://techpulse.attodigitalhk.com/products/cursor.html
+- Model Context Protocol: https://techpulse.attodigitalhk.com/products/mcp.html
+- Lovable: https://techpulse.attodigitalhk.com/products/lovable.html
+- Claude Code: https://techpulse.attodigitalhk.com/products/claude-code.html
+- Perplexity: https://techpulse.attodigitalhk.com/products/perplexity.html
+- Pytorch Lightning: https://techpulse.attodigitalhk.com/products/pytorch-lightning.html
+- Ponytail: https://techpulse.attodigitalhk.com/products/ponytail.html
+- Langchain: https://techpulse.attodigitalhk.com/products/langchain.html
+- AutoGPT: https://techpulse.attodigitalhk.com/products/autogpt.html
+- Deep Live Cam: https://techpulse.attodigitalhk.com/products/deep-live-cam.html
+- Claude Mem: https://techpulse.attodigitalhk.com/products/claude-mem.html
+- OpenHands: https://techpulse.attodigitalhk.com/products/openhands.html
+- Flowise: https://techpulse.attodigitalhk.com/products/flowise.html
+- Kong: https://techpulse.attodigitalhk.com/products/kong.html
+- Strix: https://techpulse.attodigitalhk.com/products/strix.html
+- Sim: https://techpulse.attodigitalhk.com/products/sim.html
+- Langflow: https://techpulse.attodigitalhk.com/products/langflow.html
+- Agency Agents: https://techpulse.attodigitalhk.com/products/agency-agents.html
+- Gemini Cli: https://techpulse.attodigitalhk.com/products/gemini-cli.html
+- Browser Use: https://techpulse.attodigitalhk.com/products/browser-use.html
+
+## Video intelligence pages
+- Réinventer l'expérience beauté grâce à l'IA: https://techpulse.attodigitalhk.com/topics/slyxra5ay9g.html
+- What does an AI-native future look like for one of the world's largest automotive marketplaces?: https://techpulse.attodigitalhk.com/topics/0x4krxmrgz4.html
+- Swimming Against Man-Made Waves: https://techpulse.attodigitalhk.com/topics/m0f9ar35wra.html
+- I Hate These...: https://techpulse.attodigitalhk.com/topics/s82w3hwdvza.html
+- Building an Android app in AI Studio: https://techpulse.attodigitalhk.com/topics/kwjwyiqdmly.html
+- Builders Unscripted: Ep. 5 - Derya Unutmaz: https://techpulse.attodigitalhk.com/topics/4sexn3ye8xg.html
+- Thomson Reuters CEO Steve Hasker swears by this AI Routine: https://techpulse.attodigitalhk.com/topics/sha3el1ngn8.html
+- Create agent skills for on-device generative AI (I/O Connect ‘26): https://techpulse.attodigitalhk.com/topics/kip8pau3oai.html
+- Dynamic Callbacks on Android for Google Pay: https://techpulse.attodigitalhk.com/topics/wzvd1turety.html
+- AI Studio, Cloud SQL, and Firestore: How to vibe-code like a pro: https://techpulse.attodigitalhk.com/topics/cotv-if0ypo.html
+- Inherited Instincts [Partner content from STEMforBugs]: https://techpulse.attodigitalhk.com/topics/ytwxmj88t9q.html
+- Debugging an AI agent like a football match ⚽: https://techpulse.attodigitalhk.com/topics/b1gczndjuu0.html
+- Build creative apps with the GenMedia suite (I/O Connect ‘26): https://techpulse.attodigitalhk.com/topics/nrlzqanorwq.html
+- Build agents with Gemini API (I/O Connect ‘26): https://techpulse.attodigitalhk.com/topics/d9laqwkunx8.html
+- Was the Trump phone assembled in the US? #Vergecast: https://techpulse.attodigitalhk.com/topics/o-d4q1g4hti.html
+- We got the Trump phone. #Vergecast: https://techpulse.attodigitalhk.com/topics/yokvcljypps.html
+- Intent-driven development with Claude Code & Fable 5: https://techpulse.attodigitalhk.com/topics/6erugfurdhy.html
+- We finally have a Trump Phone | The Vergecast Livestream: https://techpulse.attodigitalhk.com/topics/jqr9q-rvyw.html
+- The 1000 FPS Gaming PC: https://techpulse.attodigitalhk.com/topics/veai8oucmvm.html
+- Sony Announces End of Physical Discs: https://techpulse.attodigitalhk.com/topics/ryqf6ecsoba.html
+
+## Data policy
+TechPulse summarizes public metadata and links back to original sources. Product and topic pages include timestamps and source evidence for attribution.

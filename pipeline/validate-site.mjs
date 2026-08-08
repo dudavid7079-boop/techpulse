@@ -13,6 +13,7 @@ const requiredFiles = [
   "styles.css",
   "robots.txt",
   "sitemap.xml",
+  "llms.txt",
   "site.webmanifest",
   "health.json",
   "_headers",
@@ -56,7 +57,25 @@ function normalizeAssetPath(rawValue) {
   if (/^(https?:|mailto:|tel:|#|javascript:)/.test(rawValue)) return null;
   const clean = rawValue.split("#")[0].split("?")[0];
   if (!clean || clean === "." || clean === "./") return null;
-  return clean.replace(/^\.\//, "");
+  return clean;
+}
+
+function resolveReference(fromFile, rawValue) {
+  const normalized = normalizeAssetPath(rawValue);
+  if (!normalized) return null;
+  const base = path.dirname(fromFile);
+  return path.normalize(path.join(base === "." ? "" : base, normalized)).replace(/\\/g, "/").replace(/^\.\//, "");
+}
+
+function listHtmlFiles() {
+  const topLevel = fs.readdirSync(root).filter((file) => file.endsWith(".html"));
+  const productPages = exists("products")
+    ? fs.readdirSync(path.join(root, "products")).filter((file) => file.endsWith(".html")).map((file) => `products/${file}`)
+    : [];
+  const topicPages = exists("topics")
+    ? fs.readdirSync(path.join(root, "topics")).filter((file) => file.endsWith(".html")).map((file) => `topics/${file}`)
+    : [];
+  return [...topLevel, ...productPages, ...topicPages].sort();
 }
 
 for (const file of requiredFiles) {
@@ -72,7 +91,7 @@ for (const jsonFile of ["site.webmanifest", "health.json", "pipeline/job-status.
   }
 }
 
-const htmlFiles = fs.readdirSync(root).filter((file) => file.endsWith(".html")).sort();
+const htmlFiles = listHtmlFiles();
 
 for (const file of htmlFiles) {
   const html = read(file);
@@ -80,18 +99,18 @@ for (const file of htmlFiles) {
     if (!html.includes(snippet)) errors.push(`${file} missing head snippet: ${snippet}`);
   }
 
-  if (!/href=["']\.\/styles\.css(?:\?[^"']+)?["']/.test(html)) {
-    errors.push(`${file} missing stylesheet link: ./styles.css`);
+  if (!/href=["'](?:\.\.\/|\.\/)styles\.css(?:\?[^"']+)?["']/.test(html)) {
+    errors.push(`${file} missing stylesheet link: ./styles.css or ../styles.css`);
   }
 
   const matches = html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g);
   for (const match of matches) {
-    const relative = normalizeAssetPath(match[1]);
-    if (!relative) continue;
-    if (!exists(relative)) errors.push(`${file} references missing asset/page: ${match[1]}`);
+    const resolved = resolveReference(file, match[1]);
+    if (!resolved) continue;
+    if (!exists(resolved)) errors.push(`${file} references missing asset/page: ${match[1]}`);
   }
 
-  if (!/property="og:image" content="https:\/\/[^"]+\/assets\/og-image\.png"/.test(html)) {
+  if (!/property="og:image" content="https:\/\/[^"']+\/assets\/og-image\.png"/.test(html)) {
     errors.push(`${file} should use an absolute production og:image URL.`);
   }
 }
@@ -108,8 +127,15 @@ if (!playbackConfig.includes("video.techpulse.attodigitalhk.com")) {
 
 const robots = exists("robots.txt") ? read("robots.txt") : "";
 const sitemap = exists("sitemap.xml") ? read("sitemap.xml") : "";
+const llms = exists("llms.txt") ? read("llms.txt") : "";
 if (robots.includes("techpulse.example.com") || sitemap.includes("techpulse.example.com")) {
   warnings.push("Production domain placeholder still present in robots.txt or sitemap.xml.");
+}
+if (!llms.includes("TechPulse") || !llms.includes("Product intelligence pages")) {
+  errors.push("llms.txt should describe TechPulse and product intelligence pages.");
+}
+if (!sitemap.includes("/products/") || !sitemap.includes("/topics/")) {
+  errors.push("sitemap.xml should include generated product and topic pages.");
 }
 
 if (warnings.length) {
