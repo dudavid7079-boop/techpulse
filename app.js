@@ -88,6 +88,41 @@ function formatDateTime(iso) {
   return new Date(iso).toLocaleString("zh-CN", { hour12: false });
 }
 
+function hoursSince(iso) {
+  if (!iso) return null;
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return null;
+  return Math.max(0, (Date.now() - date.getTime()) / 36e5);
+}
+
+function formatAge(hours) {
+  if (hours === null) return "未知";
+  if (hours < 1) return "1 小时内";
+  if (hours < 48) return `${Math.round(hours)} 小时前`;
+  return `${Math.round(hours / 24)} 天前`;
+}
+
+function renderRefreshHealth(refreshStatus, refreshedAt) {
+  const finishedAt = refreshStatus?.finishedAt || refreshedAt;
+  const ageHours = hoursSince(finishedAt);
+  const status = refreshStatus?.status || "unknown";
+  const isFailed = status === "failed";
+  const isStale = !isFailed && ageHours !== null && ageHours > 30;
+  const className = isFailed ? "failed" : isStale ? "stale" : "ready";
+  const label = isFailed ? "自动刷新失败" : isStale ? "刷新延迟" : "自动刷新成功";
+  const detail = isFailed
+    ? `${refreshStatus?.stage || "未知阶段"} · 已回滚上一版`
+    : `${formatAge(ageHours)} · 每日 08:05 UTC`;
+
+  return `
+    <div class="refresh-health ${className}">
+      <span>${label}</span>
+      <strong>${formatDateTime(finishedAt)}</strong>
+      <p>${detail}</p>
+    </div>
+  `;
+}
+
 function renderPipelineStatus(jobStatus, channelTests, refreshStatus) {
   if (!pipelineStatus) return;
   const sourceLabel = window.TechPulseDataSource === "generated" ? "Pipeline 生成数据" : "Demo 演示数据";
@@ -107,6 +142,7 @@ function renderPipelineStatus(jobStatus, channelTests, refreshStatus) {
       <p>${modeLabel} · 最近刷新 ${formatDateTime(refreshedAt)}</p>
       ${refreshNotice}
     </div>
+    ${renderRefreshHealth(refreshStatus, refreshedAt)}
     <div class="home-status-metrics">
       <a href="./topics.html?source=${window.TechPulseDataSource}">
         <b>${jobStatus?.topicCount || videos.length}</b>
