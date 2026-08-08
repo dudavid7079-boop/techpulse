@@ -23,3 +23,14 @@ journalctl -u techpulse-refresh.service -n 100 --no-pager
 ## GitHub token
 
 Add `GITHUB_TOKEN` to `.env.production` to increase GitHub API rate limits for product radar collection. The token only needs public repository read/search access.
+
+## Refresh failure alerts
+
+Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in `/opt/techpulse/.env.production` to receive a Telegram alert if the daily refresh fails and rolls back to the previous release.
+
+```bash
+cd /opt/techpulse
+node pipeline/send-alert.mjs test manual
+sudo systemctl start techpulse-refresh.service
+journalctl -u techpulse-refresh.service -n 120 --no-pager
+```

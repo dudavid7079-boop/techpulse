@@ -34,6 +34,39 @@ write_refresh_status() {
     "$status" "$CURRENT_STAGE" "$finished_at" "$2" > pipeline/refresh-status.json
 }
 
+send_failure_alert() {
+  if [ "${TECHPULSE_ALERTS_ENABLED:-true}" = "false" ]; then
+    return 0
+  fi
+
+  if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+    echo "Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID, skipped refresh failure alert." >&2
+    return 0
+  fi
+
+  if ! command -v curl >/dev/null 2>&1; then
+    echo "curl is not available, skipped refresh failure alert." >&2
+    return 0
+  fi
+
+  alert_time="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  alert_host="$(hostname 2>/dev/null || printf 'unknown')"
+  alert_text="TechPulse refresh failed
+Stage: ${CURRENT_STAGE}
+Host: ${alert_host}
+Time: ${alert_time}
+Previous release restored: yes
+Check: journalctl -u techpulse-refresh.service -n 120 --no-pager"
+
+  if curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+    --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+    --data-urlencode "text=${alert_text}" >/dev/null; then
+    echo "TechPulse refresh failure alert sent."
+  else
+    echo "TechPulse refresh failure alert failed to send." >&2
+  fi
+}
+
 finish_refresh() {
   exit_code="$?"
   if [ "$exit_code" -ne 0 ]; then
@@ -44,6 +77,7 @@ finish_refresh() {
     done
     write_refresh_status "failed" "true"
     echo "TechPulse refresh failed during ${CURRENT_STAGE}; restored previous release." >&2
+    send_failure_alert
   fi
   rm -rf "$BACKUP_DIR"
 }

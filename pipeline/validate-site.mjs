@@ -27,6 +27,7 @@ const requiredFiles = [
   "assets/apple-touch-icon.png",
   "assets/og-image.png",
   "pipeline/job-status.json",
+  "pipeline/send-alert.mjs",
   "pipeline/product-signals.real.json",
   "pipeline/channel-tests.json",
   "pipeline/invidious-status.json"
