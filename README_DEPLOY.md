@@ -34,3 +34,10 @@ node pipeline/send-alert.mjs test manual
 sudo systemctl start techpulse-refresh.service
 journalctl -u techpulse-refresh.service -n 120 --no-pager
 ```
+
+If the VM only has Docker and no host-level Node.js runtime, run the alert test through the same Node image used by the refresh job:
+
+```bash
+cd /opt/techpulse
+docker run --rm --env-file .env.production -v "$PWD:/work" -w /work "${NODE_IMAGE:-node:22-alpine}" node pipeline/send-alert.mjs test manual
+```
