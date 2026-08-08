@@ -212,6 +212,69 @@ function writeSitemap(products, videos) {
   fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
 }
 
+function writeFeed(products, videos, data) {
+  const generatedAt = data.generatedAt || new Date().toISOString();
+  const items = [
+    ...products.slice(0, 20).map((product) => ({
+      title: `${product.name} - AI 产品信号 ${product.signalScore || 0}`,
+      link: `${site}/products/${slug(product.id || product.name)}.html`,
+      description: product.quickTake || product.tagline || (product.evidence || []).join("，"),
+      pubDate: generatedAt,
+    })),
+    ...videos.slice(0, 20).map((video) => ({
+      title: `${video.topic} - 中文视频摘要`,
+      link: `${site}/topics/${slug(video.videoId || video.topic)}.html`,
+      description: video.summary,
+      pubDate: generatedAt,
+    })),
+  ];
+  const xmlItems = items
+    .map(
+      (item) => `    <item>
+      <title>${escapeHTML(item.title)}</title>
+      <link>${item.link}</link>
+      <guid>${item.link}</guid>
+      <pubDate>${new Date(item.pubDate).toUTCString()}</pubDate>
+      <description>${escapeHTML(truncate(item.description, 500))}</description>
+    </item>`
+    )
+    .join("\n");
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>TechPulse AI 产品与视频情报</title>
+    <link>${site}/</link>
+    <description>TechPulse 每日 AI 产品雷达、GitHub/HN 信号与海外视频中文摘要。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>${new Date(generatedAt).toUTCString()}</lastBuildDate>
+${xmlItems}
+  </channel>
+</rss>
+`;
+  fs.writeFileSync(path.join(root, "feed.xml"), xml);
+}
+
+function writeProductsJson(products, data) {
+  const payload = {
+    name: "TechPulse AI Product Intelligence Index",
+    generatedAt: data.generatedAt || new Date().toISOString(),
+    source: `${site}/products.html`,
+    products: products.map((product) => ({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      url: `${site}/products/${slug(product.id || product.name)}.html`,
+      signalScore: product.signalScore,
+      evidence: product.evidence || [],
+      quickTake: product.quickTake || product.tagline || "",
+      sourceMix: product.sourceMix || {},
+      github: product.sourceSignals?.github?.detail || "",
+      hackerNews: product.sourceSignals?.hackerNews?.detail || "",
+    })),
+  };
+  fs.writeFileSync(path.join(root, "ai-products.json"), `${JSON.stringify(payload, null, 2)}\n`);
+}
+
 function writeLlms(products, videos, data) {
   const lines = [
     "# TechPulse 科技脉动",
@@ -225,6 +288,8 @@ function writeLlms(products, videos, data) {
     `- Product radar: ${site}/products.html`,
     `- Search: ${site}/search.html`,
     `- Methodology: ${site}/pipeline.html`,
+    `- RSS feed: ${site}/feed.xml`,
+    `- Machine-readable product index: ${site}/ai-products.json`,
     "",
     "## Product intelligence pages",
     ...products.slice(0, 20).map((product) => `- ${product.name}: ${site}/products/${slug(product.id || product.name)}.html`),
@@ -255,5 +320,7 @@ for (const video of videos.slice(0, 40)) {
 }
 
 writeSitemap(products, videos);
+writeFeed(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt });
+writeProductsJson(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
 writeLlms(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt });
-console.log(`Generated ${products.length} product pages, ${Math.min(videos.length, 40)} topic pages, sitemap.xml, llms.txt`);
+console.log(`Generated ${products.length} product pages, ${Math.min(videos.length, 40)} topic pages, sitemap.xml, feed.xml, ai-products.json, llms.txt`);

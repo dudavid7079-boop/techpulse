@@ -14,6 +14,8 @@ const requiredFiles = [
   "robots.txt",
   "sitemap.xml",
   "llms.txt",
+  "feed.xml",
+  "ai-products.json",
   "site.webmanifest",
   "health.json",
   "_headers",
@@ -82,7 +84,7 @@ for (const file of requiredFiles) {
   if (!exists(file)) errors.push(`Missing required file: ${file}`);
 }
 
-for (const jsonFile of ["site.webmanifest", "health.json", "pipeline/job-status.json", "pipeline/refresh-status.json", "pipeline/product-signals.real.json", "pipeline/channel-tests.json", "pipeline/invidious-status.json"]) {
+for (const jsonFile of ["site.webmanifest", "health.json", "ai-products.json", "pipeline/job-status.json", "pipeline/refresh-status.json", "pipeline/product-signals.real.json", "pipeline/channel-tests.json", "pipeline/invidious-status.json"]) {
   if (!exists(jsonFile)) continue;
   try {
     JSON.parse(read(jsonFile));
@@ -128,11 +130,18 @@ if (!playbackConfig.includes("video.techpulse.attodigitalhk.com")) {
 const robots = exists("robots.txt") ? read("robots.txt") : "";
 const sitemap = exists("sitemap.xml") ? read("sitemap.xml") : "";
 const llms = exists("llms.txt") ? read("llms.txt") : "";
+const feed = exists("feed.xml") ? read("feed.xml") : "";
 if (robots.includes("techpulse.example.com") || sitemap.includes("techpulse.example.com")) {
   warnings.push("Production domain placeholder still present in robots.txt or sitemap.xml.");
 }
 if (!llms.includes("TechPulse") || !llms.includes("Product intelligence pages")) {
   errors.push("llms.txt should describe TechPulse and product intelligence pages.");
+}
+if (!llms.includes("ai-products.json") || !llms.includes("feed.xml")) {
+  errors.push("llms.txt should expose RSS feed and machine-readable product index.");
+}
+if (!feed.includes("<rss") || !feed.includes("<item>")) {
+  errors.push("feed.xml should be a populated RSS feed.");
 }
 if (!sitemap.includes("/products/") || !sitemap.includes("/topics/")) {
   errors.push("sitemap.xml should include generated product and topic pages.");

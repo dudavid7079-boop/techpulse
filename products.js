@@ -1,3 +1,19 @@
+function seoSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+}
+
+function productSeoUrl(productId) {
+  return `./products/${seoSlug(productId)}.html`;
+}
+
+function topicSeoUrl(videoId) {
+  return `./topics/${seoSlug(videoId)}.html`;
+}
+
 let productState = { products: [] };
 const productVideos = window.TechPulseData?.videos || [];
 const productDirectory = document.querySelector("#productDirectory");
@@ -339,7 +355,7 @@ function renderDetail(productId) {
                       <span>${video.channel} · ${video.category}</span>
                       <h4>${video.topic}</h4>
                       <p>${video.summary}</p>
-                      <a class="detail-link" href="./topics.html?id=${video.videoId}" data-analytics-event="product_video_summary_click" data-analytics-action="product_detail" data-video-id="${video.videoId}" data-category="${product.category}">查看视频摘要</a>
+                      <a class="detail-link" href="${topicSeoUrl(video.videoId)}" data-analytics-event="product_video_summary_click" data-analytics-action="product_detail" data-video-id="${video.videoId}" data-category="${product.category}">查看视频摘要</a>
                     </article>
                   `
                 )

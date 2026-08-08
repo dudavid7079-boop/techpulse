@@ -1,0 +1,427 @@
+{
+  "name": "TechPulse AI Product Intelligence Index",
+  "generatedAt": "2026-07-07T09:54:59.839Z",
+  "source": "https://techpulse.attodigitalhk.com/products.html",
+  "products": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/cursor.html",
+      "signalScore": 98,
+      "evidence": [
+        "GitHub 生态强",
+        "社区讨论活跃",
+        "2 条视频证明"
+      ],
+      "quickTake": "Cursor 已经从补全工具变成开发工作流入口。当前看点不是单次代码生成，而是它能否把 Agent、上下文检索和团队代码库权限做成稳定生产力。",
+      "sourceMix": {
+        "github": 38,
+        "community": 25,
+        "video": 25,
+        "freshness": 9
+      },
+      "github": "3 个相关仓库，累计 32713 stars。",
+      "hackerNews": "3 条 HN 讨论，累计 11 条评论。"
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol",
+      "category": "AI Infra",
+      "url": "https://techpulse.attodigitalhk.com/products/mcp.html",
+      "signalScore": 98,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "2 条视频证明"
+      ],
+      "quickTake": "MCP 是 Agent 应用从演示走向可用的关键连接层。短期热度来自工具集成，长期价值取决于权限、安全审计和企业系统接入标准化。",
+      "sourceMix": {
+        "github": 38,
+        "community": 21,
+        "video": 25,
+        "freshness": 10
+      },
+      "github": "3 个相关仓库，累计 124760 stars。",
+      "hackerNews": "5 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable",
+      "category": "AI App Builder",
+      "url": "https://techpulse.attodigitalhk.com/products/lovable.html",
+      "signalScore": 93,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "2 条视频证明"
+      ],
+      "quickTake": "Lovable 的核心价值是降低从想法到可点击原型的门槛。它适合做 MVP 验证，但复杂业务逻辑、权限和长期维护仍需要工程能力接管。",
+      "sourceMix": {
+        "github": 26,
+        "community": 23,
+        "video": 25,
+        "freshness": 11
+      },
+      "github": "3 个相关仓库，累计 21077 stars。",
+      "hackerNews": "2 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/claude-code.html",
+      "signalScore": 90,
+      "evidence": [
+        "GitHub 生态强",
+        "社区讨论活跃",
+        "1 条视频证明"
+      ],
+      "quickTake": "Claude Code 的机会在于更接近工程师真实命令行环境。它不是 IDE 替代品，而是面向仓库理解、重构和多文件修改的 Agent 执行层。",
+      "sourceMix": {
+        "github": 31,
+        "community": 29,
+        "video": 12,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 137456 stars。",
+      "hackerNews": "3 条 HN 讨论，累计 2 条评论。"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "AI Search",
+      "url": "https://techpulse.attodigitalhk.com/products/perplexity.html",
+      "signalScore": 85,
+      "evidence": [
+        "生态信号待跟踪",
+        "社区讨论活跃",
+        "2 条视频证明"
+      ],
+      "quickTake": "Perplexity 的价值在于把搜索结果压缩成可读答案。风险也同样明显：内容版权、来源透明度和与传统搜索/浏览器入口的竞争。",
+      "sourceMix": {
+        "github": 18,
+        "community": 25,
+        "video": 25,
+        "freshness": 9
+      },
+      "github": "3 个相关仓库，累计 10888 stars。",
+      "hackerNews": "1 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "pytorch-lightning",
+      "name": "Pytorch Lightning",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/pytorch-lightning.html",
+      "signalScore": 75,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Pytorch Lightning 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 24,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 31233 stars。",
+      "hackerNews": "3 条 HN 讨论，累计 181 条评论。"
+    },
+    {
+      "id": "ponytail",
+      "name": "Ponytail",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/ponytail.html",
+      "signalScore": 68,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Ponytail 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 17,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 80744 stars。",
+      "hackerNews": "2 条 HN 讨论，累计 17 条评论。"
+    },
+    {
+      "id": "langchain",
+      "name": "Langchain",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/langchain.html",
+      "signalScore": 66,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Langchain 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 15,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 141545 stars。",
+      "hackerNews": "5 条 HN 讨论，累计 3 条评论。"
+    },
+    {
+      "id": "autogpt",
+      "name": "AutoGPT",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/autogpt.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "AutoGPT 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 185478 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "deep-live-cam",
+      "name": "Deep Live Cam",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/deep-live-cam.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Deep Live Cam 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 94810 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "claude-mem",
+      "name": "Claude Mem",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/claude-mem.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Claude Mem 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 86866 stars。",
+      "hackerNews": "1 条 HN 讨论，累计 1 条评论。"
+    },
+    {
+      "id": "openhands",
+      "name": "OpenHands",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/openhands.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "OpenHands 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 80482 stars。",
+      "hackerNews": "4 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "flowise",
+      "name": "Flowise",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/flowise.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Flowise 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 54536 stars。",
+      "hackerNews": "1 条 HN 讨论，累计 2 条评论。"
+    },
+    {
+      "id": "kong",
+      "name": "Kong",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/kong.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Kong 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 43768 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "strix",
+      "name": "Strix",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/strix.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Strix 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 40533 stars。",
+      "hackerNews": "1 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "sim",
+      "name": "Sim",
+      "category": "AI Coding",
+      "url": "https://techpulse.attodigitalhk.com/products/sim.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Sim 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 29050 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "langflow",
+      "name": "Langflow",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/langflow.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Langflow 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 151696 stars。",
+      "hackerNews": "3 条 HN 讨论，累计 0 条评论。"
+    },
+    {
+      "id": "agency-agents",
+      "name": "Agency Agents",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/agency-agents.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Agency Agents 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 130460 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini Cli",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/gemini-cli.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Gemini Cli 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 105922 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    },
+    {
+      "id": "browser-use",
+      "name": "Browser Use",
+      "category": "AI Agent",
+      "url": "https://techpulse.attodigitalhk.com/products/browser-use.html",
+      "signalScore": 65,
+      "evidence": [
+        "GitHub 生态强",
+        "社区观点持续采样",
+        "等待视频证明"
+      ],
+      "quickTake": "Browser Use 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。",
+      "sourceMix": {
+        "github": 38,
+        "community": 14,
+        "video": 0,
+        "freshness": 10
+      },
+      "github": "1 个相关仓库，累计 104261 stars。",
+      "hackerNews": "等待更多 Hacker News 讨论验证。"
+    }
+  ]
+}

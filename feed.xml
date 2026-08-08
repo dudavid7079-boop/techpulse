@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>TechPulse AI 产品与视频情报</title>
+    <link>https://techpulse.attodigitalhk.com/</link>
+    <description>TechPulse 每日 AI 产品雷达、GitHub/HN 信号与海外视频中文摘要。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 09:54:59 GMT</lastBuildDate>
+    <item>
+      <title>Cursor - AI 产品信号 98</title>
+      <link>https://techpulse.attodigitalhk.com/products/cursor.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/cursor.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Cursor 已经从补全工具变成开发工作流入口。当前看点不是单次代码生成，而是它能否把 Agent、上下文检索和团队代码库权限做成稳定生产力。</description>
+    </item>
+    <item>
+      <title>Model Context Protocol - AI 产品信号 98</title>
+      <link>https://techpulse.attodigitalhk.com/products/mcp.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/mcp.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>MCP 是 Agent 应用从演示走向可用的关键连接层。短期热度来自工具集成，长期价值取决于权限、安全审计和企业系统接入标准化。</description>
+    </item>
+    <item>
+      <title>Lovable - AI 产品信号 93</title>
+      <link>https://techpulse.attodigitalhk.com/products/lovable.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/lovable.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Lovable 的核心价值是降低从想法到可点击原型的门槛。它适合做 MVP 验证，但复杂业务逻辑、权限和长期维护仍需要工程能力接管。</description>
+    </item>
+    <item>
+      <title>Claude Code - AI 产品信号 90</title>
+      <link>https://techpulse.attodigitalhk.com/products/claude-code.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/claude-code.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Claude Code 的机会在于更接近工程师真实命令行环境。它不是 IDE 替代品，而是面向仓库理解、重构和多文件修改的 Agent 执行层。</description>
+    </item>
+    <item>
+      <title>Perplexity - AI 产品信号 85</title>
+      <link>https://techpulse.attodigitalhk.com/products/perplexity.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/perplexity.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Perplexity 的价值在于把搜索结果压缩成可读答案。风险也同样明显：内容版权、来源透明度和与传统搜索/浏览器入口的竞争。</description>
+    </item>
+    <item>
+      <title>Pytorch Lightning - AI 产品信号 75</title>
+      <link>https://techpulse.attodigitalhk.com/products/pytorch-lightning.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/pytorch-lightning.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Pytorch Lightning 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Ponytail - AI 产品信号 68</title>
+      <link>https://techpulse.attodigitalhk.com/products/ponytail.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/ponytail.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Ponytail 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Langchain - AI 产品信号 66</title>
+      <link>https://techpulse.attodigitalhk.com/products/langchain.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/langchain.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Langchain 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>AutoGPT - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/autogpt.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/autogpt.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>AutoGPT 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Deep Live Cam - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/deep-live-cam.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/deep-live-cam.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Deep Live Cam 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Claude Mem - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/claude-mem.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/claude-mem.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Claude Mem 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>OpenHands - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/openhands.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/openhands.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>OpenHands 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Flowise - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/flowise.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/flowise.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Flowise 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Kong - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/kong.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/kong.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Kong 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Strix - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/strix.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/strix.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Strix 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Sim - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/sim.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/sim.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Sim 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Langflow - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/langflow.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/langflow.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Langflow 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Agency Agents - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/agency-agents.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/agency-agents.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Agency Agents 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Gemini Cli - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/gemini-cli.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/gemini-cli.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Gemini Cli 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Browser Use - AI 产品信号 65</title>
+      <link>https://techpulse.attodigitalhk.com/products/browser-use.html</link>
+      <guid>https://techpulse.attodigitalhk.com/products/browser-use.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>Browser Use 近期在开源社区出现增长信号，适合结合仓库活跃度、实际使用门槛和社区反馈继续观察。</description>
+    </item>
+    <item>
+      <title>Réinventer l&#39;expérience beauté grâce à l&#39;IA - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/slyxra5ay9g.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/slyxra5ay9g.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 23753，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>What does an AI-native future look like for one of the world&#39;s largest automotive marketplaces? - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/0x4krxmrgz4.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/0x4krxmrgz4.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 17124，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Swimming Against Man-Made Waves - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/m0f9ar35wra.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/m0f9ar35wra.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 2672，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>I Hate These... - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/s82w3hwdvza.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/s82w3hwdvza.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 2471，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Building an Android app in AI Studio - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/kwjwyiqdmly.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/kwjwyiqdmly.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 1828，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Builders Unscripted: Ep. 5 - Derya Unutmaz - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/4sexn3ye8xg.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/4sexn3ye8xg.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 1431，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Thomson Reuters CEO Steve Hasker swears by this AI Routine - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/sha3el1ngn8.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/sha3el1ngn8.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 OpenAI 的视频正在获得较高互动。当前热度分为 882，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Create agent skills for on-device generative AI (I/O Connect ‘26) - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/kip8pau3oai.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/kip8pau3oai.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 720，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Dynamic Callbacks on Android for Google Pay - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/wzvd1turety.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/wzvd1turety.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 655，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>AI Studio, Cloud SQL, and Firestore: How to vibe-code like a pro - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/cotv-if0ypo.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/cotv-if0ypo.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 591，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Inherited Instincts [Partner content from STEMforBugs] - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/ytwxmj88t9q.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/ytwxmj88t9q.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 The Verge 的视频正在获得较高互动。当前热度分为 537，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Debugging an AI agent like a football match ⚽ - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/b1gczndjuu0.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/b1gczndjuu0.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 503，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Build creative apps with the GenMedia suite (I/O Connect ‘26) - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/nrlzqanorwq.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/nrlzqanorwq.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 486，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Build agents with Gemini API (I/O Connect ‘26) - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/d9laqwkunx8.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/d9laqwkunx8.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Developers 的视频正在获得较高互动。当前热度分为 485，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Was the Trump phone assembled in the US? #Vergecast - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/o-d4q1g4hti.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/o-d4q1g4hti.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 The Verge 的视频正在获得较高互动。当前热度分为 475，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>We got the Trump phone. #Vergecast - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/yokvcljypps.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/yokvcljypps.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 The Verge 的视频正在获得较高互动。当前热度分为 428，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Intent-driven development with Claude Code &amp; Fable 5 - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/6erugfurdhy.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/6erugfurdhy.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Google Cloud Tech 的视频正在获得较高互动。当前热度分为 384，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>We finally have a Trump Phone | The Vergecast Livestream - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/jqr9q-rvyw.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/jqr9q-rvyw.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 The Verge 的视频正在获得较高互动。当前热度分为 357，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>The 1000 FPS Gaming PC - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/veai8oucmvm.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/veai8oucmvm.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 104，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+    <item>
+      <title>Sony Announces End of Physical Discs - 中文视频摘要</title>
+      <link>https://techpulse.attodigitalhk.com/topics/ryqf6ecsoba.html</link>
+      <guid>https://techpulse.attodigitalhk.com/topics/ryqf6ecsoba.html</guid>
+      <pubDate>Tue, 07 Jul 2026 09:54:59 GMT</pubDate>
+      <description>这条来自 Linus Tech Tips 的视频正在获得较高互动。当前热度分为 51，适合进入今日中文快报候选。正式版本会替换为字幕驱动的大模型摘要。</description>
+    </item>
+  </channel>
+</rss>

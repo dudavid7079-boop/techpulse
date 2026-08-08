@@ -1,3 +1,19 @@
+function seoSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+}
+
+function productSeoUrl(productId) {
+  return `./products/${seoSlug(productId)}.html`;
+}
+
+function topicSeoUrl(videoId) {
+  return `./topics/${seoSlug(videoId)}.html`;
+}
+
 const { videos } = window.TechPulseData;
 const { scoreVideo, formatNumber } = window.TechPulseUtils;
 const productState = window.TechPulseProducts || { products: [] };
@@ -126,7 +142,7 @@ function renderProductOps() {
       <span>今日重点</span>
       <b>${topProducts[0]?.name || "暂无产品"}</b>
       <p>${topProducts[0] ? `${topProducts[0].category} · Signal ${topProducts[0].signalScore} · ${topProducts[0].signalTrend} today` : "等待产品雷达数据生成。"}</p>
-      <a class="detail-link" href="./products.html?id=${topProducts[0]?.id || ""}" data-analytics-event="admin_product_open_click" data-analytics-action="top_product" data-product-id="${topProducts[0]?.id || ""}">查看档案</a>
+      <a class="detail-link" href="${topProducts[0]?.id ? productSeoUrl(topProducts[0].id) : "./products.html"}" data-analytics-event="admin_product_open_click" data-analytics-action="top_product" data-product-id="${topProducts[0]?.id || ""}">查看档案</a>
     </article>
     <article>
       <span>覆盖缺口</span>
@@ -143,7 +159,7 @@ function renderProductOps() {
       ${topProducts
         .map(
           (product) => `
-            <a href="./products.html?id=${product.id}" data-analytics-event="admin_product_open_click" data-analytics-action="ops_list" data-product-id="${product.id}">
+            <a href="${productSeoUrl(product.id)}" data-analytics-event="admin_product_open_click" data-analytics-action="ops_list" data-product-id="${product.id}">
               <strong>${product.name}</strong>
               <small>${productCoverage(product)} · ${product.category} · ${product.signalScore}</small>
             </a>

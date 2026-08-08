@@ -1,3 +1,19 @@
+function seoSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+}
+
+function productSeoUrl(productId) {
+  return `./products/${seoSlug(productId)}.html`;
+}
+
+function topicSeoUrl(videoId) {
+  return `./topics/${seoSlug(videoId)}.html`;
+}
+
 const { videos, channels } = window.TechPulseData;
 const { scoreVideo, formatNumber } = window.TechPulseUtils;
 let productState = { products: [] };
@@ -138,7 +154,7 @@ function renderProductRadar() {
             <div class="product-card-actions">
               <button type="button" data-product-watch="${product.id}">${isProductWatched(product.id) ? "已关注" : "关注信号"}</button>
               <a href="./subscribe.html?product=${product.id}" data-analytics-event="product_subscribe_click" data-analytics-action="home_radar" data-product-id="${product.id}" data-category="${product.category}">订阅关键词</a>
-              <a class="detail-link" href="./products.html?id=${product.id}" data-analytics-event="product_detail_click" data-analytics-action="home_radar" data-product-id="${product.id}" data-category="${product.category}">查看档案</a>
+              <a class="detail-link" href="${productSeoUrl(product.id)}" data-analytics-event="product_detail_click" data-analytics-action="home_radar" data-product-id="${product.id}" data-category="${product.category}">查看档案</a>
             </div>
           </div>
         </article>
@@ -248,7 +264,7 @@ function renderTopics() {
                   <span>${formatNumber(video.comments)} comments</span>
                 </div>
                 <div class="topic-tags">${video.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
-                <a class="detail-link" href="./topics.html?id=${video.videoId}" data-analytics-event="topic_detail_click" data-analytics-action="home_card" data-video-id="${video.videoId}" data-channel="${video.channel}" data-category="${video.category}">查看话题详情</a>
+                <a class="detail-link" href="${topicSeoUrl(video.videoId)}" data-analytics-event="topic_detail_click" data-analytics-action="home_card" data-video-id="${video.videoId}" data-channel="${video.channel}" data-category="${video.category}">查看话题详情</a>
               </div>
             </article>
           `

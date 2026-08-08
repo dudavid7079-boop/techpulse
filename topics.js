@@ -1,3 +1,19 @@
+function seoSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+}
+
+function productSeoUrl(productId) {
+  return `./products/${seoSlug(productId)}.html`;
+}
+
+function topicSeoUrl(videoId) {
+  return `./topics/${seoSlug(videoId)}.html`;
+}
+
 const { videos } = window.TechPulseData;
 const { scoreVideo, formatNumber } = window.TechPulseUtils;
 const playbackConfig = window.TechPulsePlayback || {};
@@ -124,7 +140,7 @@ function renderDetail(videoId) {
             : related
                 .map(
                   (item) => `
-              <a href="./topics.html?id=${item.videoId}" data-analytics-event="related_topic_click" data-analytics-action="topic_detail" data-video-id="${item.videoId}" data-channel="${item.channel}" data-category="${item.category}">
+              <a href="${topicSeoUrl(item.videoId)}" data-analytics-event="related_topic_click" data-analytics-action="topic_detail" data-video-id="${item.videoId}" data-channel="${item.channel}" data-category="${item.category}">
                 <span>${item.channel}</span>
                 <strong>${item.topic}</strong>
               </a>

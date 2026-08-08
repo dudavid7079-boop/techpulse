@@ -9,6 +9,8 @@ Last updated: 2026-07-07T09:54:59.839Z
 - Product radar: https://techpulse.attodigitalhk.com/products.html
 - Search: https://techpulse.attodigitalhk.com/search.html
 - Methodology: https://techpulse.attodigitalhk.com/pipeline.html
+- RSS feed: https://techpulse.attodigitalhk.com/feed.xml
+- Machine-readable product index: https://techpulse.attodigitalhk.com/ai-products.json
 
 ## Product intelligence pages
 - Cursor: https://techpulse.attodigitalhk.com/products/cursor.html

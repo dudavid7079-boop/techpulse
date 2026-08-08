@@ -1,3 +1,19 @@
+function seoSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+}
+
+function productSeoUrl(productId) {
+  return `./products/${seoSlug(productId)}.html`;
+}
+
+function topicSeoUrl(videoId) {
+  return `./topics/${seoSlug(videoId)}.html`;
+}
+
 const { videos } = window.TechPulseData;
 const { scoreVideo, formatNumber } = window.TechPulseUtils;
 
@@ -7,6 +23,11 @@ const sortSelect = document.querySelector("#archiveSort");
 const results = document.querySelector("#archiveResults");
 
 let productState = { products: [] };
+
+const initialQuery = new URLSearchParams(location.search).get("q");
+if (initialQuery && !queryInput.value) {
+  queryInput.value = initialQuery;
+}
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (char) => ({
@@ -55,7 +76,7 @@ function productToResult(product) {
     score: product.signalScore || 0,
     quality: product.signalScore || 0,
     recentValue: -(product.trendDelta || 0),
-    href: `./products.html?id=${encodeURIComponent(product.id)}`,
+    href: productSeoUrl(product.id),
     meta: `产品档案 · ${product.category || "AI"}`,
     asideLabel: "Signal",
     asideSmall: `${product.trendDelta >= 0 ? "+" : ""}${product.trendDelta || 0} today · ${videoCount} video proofs`,
@@ -79,7 +100,7 @@ function videoToResult(video) {
     score,
     quality: video.quality,
     recentValue: video.publishedHours,
-    href: `./topics.html?id=${encodeURIComponent(video.videoId)}`,
+    href: topicSeoUrl(video.videoId),
     meta: `${video.category} · ${video.channel}`,
     asideLabel: "Score",
     asideSmall: `${formatNumber(video.views)} views`,
