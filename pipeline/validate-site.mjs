@@ -10,6 +10,7 @@ const requiredFiles = [
   "product-data.js",
   "product-data.generated.js",
   "product-loader.js",
+  "i18n.js",
   "styles.css",
   "robots.txt",
   "sitemap.xml",

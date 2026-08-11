@@ -90,6 +90,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN" })
     </header>
     <main>${body}</main>
     <footer class="site-footer"><span>TechPulse · 科技脉动</span><span>AI 产品情报</span></footer>
+    <script src="../i18n.js?v=20260810-bilingual"></script>
   </body>
 </html>
 `;
