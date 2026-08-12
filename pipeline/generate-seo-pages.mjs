@@ -73,7 +73,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN" })
     <meta name="twitter:description" content="${escapeAttr(description)}" />
     <meta name="twitter:image" content="${site}/assets/og-image.png" />
     <link rel="canonical" href="${canonical}" />
-    <link rel="stylesheet" href="../styles.css?v=20260811-seo-layout" />
+    <link rel="stylesheet" href="../styles.css?v=20260811-seo-article" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   </head>
   <body class="seo-detail-page">

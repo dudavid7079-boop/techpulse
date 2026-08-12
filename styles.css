@@ -3211,6 +3211,32 @@ input {
   border-radius: 8px;
 }
 
+.seo-detail-page .product-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 100%;
+}
+
+.seo-detail-page .product-detail > section {
+  width: 100%;
+}
+
+.seo-detail-page .quick-take {
+  display: grid;
+  gap: 14px;
+}
+
+.seo-detail-page .source-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.seo-detail-page .source-evidence:last-child {
+  grid-template-columns: 1fr;
+}
+
 .source-list {
   display: grid;
   gap: 10px;
