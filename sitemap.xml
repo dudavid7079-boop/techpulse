@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://techpulse.attodigitalhk.com/</loc>
     <changefreq>daily</changefreq>
@@ -7,6 +7,17 @@
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products.html" />
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products.html" />
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -42,101 +53,321 @@
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/cursor.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/cursor.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/cursor.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/cursor.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/cursor.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/cursor.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/cursor.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/cursor.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/mcp.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/mcp.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/mcp.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/mcp.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/mcp.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/mcp.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/mcp.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/mcp.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/lovable.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/lovable.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/lovable.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/lovable.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/lovable.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/lovable.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/lovable.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/lovable.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/claude-code.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/claude-code.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/claude-code.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/claude-code.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/claude-code.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/claude-code.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/claude-code.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/claude-code.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/perplexity.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/perplexity.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/perplexity.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/perplexity.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/perplexity.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/perplexity.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/perplexity.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/perplexity.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/pytorch-lightning.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/pytorch-lightning.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/pytorch-lightning.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/pytorch-lightning.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/pytorch-lightning.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/pytorch-lightning.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/pytorch-lightning.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/pytorch-lightning.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/ponytail.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/ponytail.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/ponytail.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/ponytail.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/ponytail.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/ponytail.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/ponytail.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/ponytail.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/langchain.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/langchain.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/langchain.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/langchain.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/langchain.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/langchain.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/langchain.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/langchain.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/autogpt.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/autogpt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/autogpt.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/autogpt.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/autogpt.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/autogpt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/autogpt.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/autogpt.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/deep-live-cam.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/deep-live-cam.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/deep-live-cam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/deep-live-cam.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/deep-live-cam.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/deep-live-cam.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/deep-live-cam.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/deep-live-cam.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/claude-mem.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/claude-mem.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/claude-mem.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/claude-mem.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/claude-mem.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/claude-mem.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/claude-mem.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/claude-mem.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/openhands.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/openhands.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/openhands.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/openhands.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/openhands.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/openhands.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/openhands.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/openhands.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/flowise.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/flowise.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/flowise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/flowise.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/flowise.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/flowise.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/flowise.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/flowise.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/kong.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/kong.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/kong.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/kong.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/kong.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/kong.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/kong.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/kong.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/strix.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/strix.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/strix.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/strix.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/strix.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/strix.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/strix.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/strix.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/sim.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/sim.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/sim.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/sim.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/sim.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/sim.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/sim.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/sim.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/langflow.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/langflow.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/langflow.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/langflow.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/langflow.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/langflow.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/langflow.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/langflow.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/agency-agents.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/agency-agents.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/agency-agents.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/agency-agents.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/agency-agents.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/agency-agents.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/agency-agents.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/agency-agents.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/gemini-cli.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/gemini-cli.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/gemini-cli.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/gemini-cli.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/gemini-cli.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/gemini-cli.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/gemini-cli.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/gemini-cli.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://techpulse.attodigitalhk.com/products/browser-use.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/browser-use.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/browser-use.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/browser-use.html" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://techpulse.attodigitalhk.com/en/products/browser-use.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://techpulse.attodigitalhk.com/products/browser-use.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://techpulse.attodigitalhk.com/en/products/browser-use.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techpulse.attodigitalhk.com/products/browser-use.html" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

@@ -7,6 +7,7 @@ Last updated: 2026-07-07T09:54:59.839Z
 ## Core pages
 - Home: https://techpulse.attodigitalhk.com/
 - Product radar: https://techpulse.attodigitalhk.com/products.html
+- English product radar: https://techpulse.attodigitalhk.com/en/products.html
 - Search: https://techpulse.attodigitalhk.com/search.html
 - Methodology: https://techpulse.attodigitalhk.com/pipeline.html
 - RSS feed: https://techpulse.attodigitalhk.com/feed.xml
@@ -33,6 +34,29 @@ Last updated: 2026-07-07T09:54:59.839Z
 - Agency Agents: https://techpulse.attodigitalhk.com/products/agency-agents.html
 - Gemini Cli: https://techpulse.attodigitalhk.com/products/gemini-cli.html
 - Browser Use: https://techpulse.attodigitalhk.com/products/browser-use.html
+
+## English product intelligence pages
+- AI Product Radar: https://techpulse.attodigitalhk.com/en/products.html
+- What is Cursor?: https://techpulse.attodigitalhk.com/en/products/cursor.html
+- What is Model Context Protocol?: https://techpulse.attodigitalhk.com/en/products/mcp.html
+- What is Lovable?: https://techpulse.attodigitalhk.com/en/products/lovable.html
+- What is Claude Code?: https://techpulse.attodigitalhk.com/en/products/claude-code.html
+- What is Perplexity?: https://techpulse.attodigitalhk.com/en/products/perplexity.html
+- What is Pytorch Lightning?: https://techpulse.attodigitalhk.com/en/products/pytorch-lightning.html
+- What is Ponytail?: https://techpulse.attodigitalhk.com/en/products/ponytail.html
+- What is Langchain?: https://techpulse.attodigitalhk.com/en/products/langchain.html
+- What is AutoGPT?: https://techpulse.attodigitalhk.com/en/products/autogpt.html
+- What is Deep Live Cam?: https://techpulse.attodigitalhk.com/en/products/deep-live-cam.html
+- What is Claude Mem?: https://techpulse.attodigitalhk.com/en/products/claude-mem.html
+- What is OpenHands?: https://techpulse.attodigitalhk.com/en/products/openhands.html
+- What is Flowise?: https://techpulse.attodigitalhk.com/en/products/flowise.html
+- What is Kong?: https://techpulse.attodigitalhk.com/en/products/kong.html
+- What is Strix?: https://techpulse.attodigitalhk.com/en/products/strix.html
+- What is Sim?: https://techpulse.attodigitalhk.com/en/products/sim.html
+- What is Langflow?: https://techpulse.attodigitalhk.com/en/products/langflow.html
+- What is Agency Agents?: https://techpulse.attodigitalhk.com/en/products/agency-agents.html
+- What is Gemini Cli?: https://techpulse.attodigitalhk.com/en/products/gemini-cli.html
+- What is Browser Use?: https://techpulse.attodigitalhk.com/en/products/browser-use.html
 
 ## Video intelligence pages
 - Réinventer l'expérience beauté grâce à l'IA: https://techpulse.attodigitalhk.com/topics/slyxra5ay9g.html

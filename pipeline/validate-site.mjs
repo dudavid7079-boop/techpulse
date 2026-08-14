@@ -79,7 +79,16 @@ function listHtmlFiles() {
   const topicPages = exists("topics")
     ? fs.readdirSync(path.join(root, "topics")).filter((file) => file.endsWith(".html")).map((file) => `topics/${file}`)
     : [];
-  return [...topLevel, ...productPages, ...topicPages].sort();
+  const englishPages = exists("en")
+    ? fs.readdirSync(path.join(root, "en"), { withFileTypes: true }).flatMap((entry) => {
+        if (entry.isFile() && entry.name.endsWith(".html")) return [`en/${entry.name}`];
+        if (!entry.isDirectory()) return [];
+        return fs.readdirSync(path.join(root, "en", entry.name))
+          .filter((file) => file.endsWith(".html"))
+          .map((file) => `en/${entry.name}/${file}`);
+      })
+    : [];
+  return [...topLevel, ...productPages, ...topicPages, ...englishPages].sort();
 }
 
 for (const file of requiredFiles) {
@@ -103,8 +112,8 @@ for (const file of htmlFiles) {
     if (!html.includes(snippet)) errors.push(`${file} missing head snippet: ${snippet}`);
   }
 
-  if (!/href=["'](?:\.\.\/|\.\/)styles\.css(?:\?[^"']+)?["']/.test(html)) {
-    errors.push(`${file} missing stylesheet link: ./styles.css or ../styles.css`);
+  if (!/href=["'](?:\.\.\/\.\.\/|\.\.\/|\.\/)styles\.css(?:\?[^"']+)?["']/.test(html)) {
+    errors.push(`${file} missing stylesheet link: ./styles.css, ../styles.css, or ../../styles.css`);
   }
 
   const matches = html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g);
@@ -147,6 +156,9 @@ if (!feed.includes("<rss") || !feed.includes("<item>")) {
 }
 if (!sitemap.includes("/products/") || !sitemap.includes("/topics/")) {
   errors.push("sitemap.xml should include generated product and topic pages.");
+}
+if (!sitemap.includes("xmlns:xhtml") || !sitemap.includes("/en/products/")) {
+  errors.push("sitemap.xml should include hreflang alternates and English product pages.");
 }
 
 if (warnings.length) {
