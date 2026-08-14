@@ -13,6 +13,11 @@ Last updated: 2026-07-07T09:54:59.839Z
 - RSS feed: https://techpulse.attodigitalhk.com/feed.xml
 - Machine-readable product index: https://techpulse.attodigitalhk.com/ai-products.json
 
+## Search guides
+- https://techpulse.attodigitalhk.com/guides/claude-code-vs-cursor.html
+- https://techpulse.attodigitalhk.com/guides/best-ai-coding-tools.html
+- https://techpulse.attodigitalhk.com/guides/model-context-protocol-guide.html
+
 ## Product intelligence pages
 - Cursor: https://techpulse.attodigitalhk.com/products/cursor.html
 - Model Context Protocol: https://techpulse.attodigitalhk.com/products/mcp.html

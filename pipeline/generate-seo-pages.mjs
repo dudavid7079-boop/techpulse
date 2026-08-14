@@ -9,6 +9,7 @@ const productsDir = path.join(root, "products");
 const topicsDir = path.join(root, "topics");
 const enDir = path.join(root, "en");
 const enProductsDir = path.join(enDir, "products");
+const guidesDir = path.join(root, "guides");
 
 function readWindowJson(filePath, globalName, suffixPattern = /;\s*$/) {
   const source = fs.readFileSync(filePath, "utf8");
@@ -63,6 +64,20 @@ function englishProductSummary(product) {
   const hnMatches = product.sourceSignals?.hackerNews?.matches || 0;
   const videoCount = (product.videos || []).length;
   return `${product.name} is an AI product tracked by TechPulse. This profile combines ${repoCount} related GitHub repositories, ${stars} stars, ${hnMatches} Hacker News discussions, and ${videoCount} video proof signals so readers can judge whether it is worth watching.`;
+}
+
+function findProduct(products, idOrName) {
+  const target = String(idOrName || "").toLowerCase();
+  return products.find((product) => String(product.id || "").toLowerCase() === target || String(product.name || "").toLowerCase() === target);
+}
+
+function productEvidenceLine(product) {
+  const repoCount = product?.sourceSignals?.github?.repoCount || 0;
+  const stars = product?.sourceSignals?.github?.stars || 0;
+  const hnMatches = product?.sourceSignals?.hackerNews?.matches || 0;
+  const comments = product?.sourceSignals?.hackerNews?.comments || 0;
+  const videoCount = (product?.videos || []).length;
+  return `${repoCount} GitHub repos, ${stars} stars, ${hnMatches} HN discussions, ${comments} comments, ${videoCount} video proof signals`;
 }
 
 function altLinks(alternates = []) {
@@ -310,11 +325,11 @@ function topicPage(video, data) {
   return layout({ title, description, canonical, body, jsonLd });
 }
 
-function writeSitemap(products, videos) {
+function writeSitemap(products, videos, guideUrls = []) {
   const baseUrls = ["/", "/products.html", "/en/products.html", "/topics.html", "/search.html", "/channels.html", "/subscribe.html", "/pricing.html", "/pipeline.html"];
   const productUrls = products.flatMap((product) => [`/products/${slug(product.id || product.name)}.html`, `/en/products/${slug(product.id || product.name)}.html`]);
   const topicUrls = videos.slice(0, 40).map((video) => `/topics/${slug(video.videoId || video.topic)}.html`);
-  const urls = [...baseUrls, ...productUrls, ...topicUrls];
+  const urls = [...baseUrls, ...guideUrls, ...productUrls, ...topicUrls];
   const alternateTags = (url) => {
     if (url === "/products.html") {
       return `\n    <xhtml:link rel="alternate" hreflang="zh-CN" href="${site}/products.html" />\n    <xhtml:link rel="alternate" hreflang="en" href="${site}/en/products.html" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${site}/products.html" />`;
@@ -330,7 +345,7 @@ function writeSitemap(products, videos) {
     }
     return "";
   };
-  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <changefreq>${index < 4 ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
+  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
   fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`);
 }
 
@@ -405,6 +420,152 @@ function writeEnglishProductIndex(products, data) {
   });
 }
 
+function guidePage({ slugName, title, description, heroLabel, h1, intro, sections, faq, generatedAt }) {
+  const canonical = `${site}/guides/${slugName}.html`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: canonical,
+    dateModified: generatedAt,
+    inLanguage: "en",
+    author: { "@type": "Organization", name: "TechPulse" },
+    publisher: { "@type": "Organization", name: "TechPulse", logo: { "@type": "ImageObject", url: `${site}/assets/logo-lockup.png` } },
+    mainEntity: faq?.length ? {
+      "@type": "FAQPage",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    } : undefined,
+  };
+  const sectionHtml = sections.map((section) => `
+          <section class="source-evidence">
+            <article>
+              <h2>${escapeHTML(section.title)}</h2>
+              ${section.body}
+            </article>
+          </section>`).join("");
+  const faqHtml = faq?.length ? `
+          <section class="source-evidence">
+            <article>
+              <h2>FAQ</h2>
+              ${faq.map((item) => `<h3>${escapeHTML(item.q)}</h3><p>${escapeHTML(item.a)}</p>`).join("")}
+            </article>
+          </section>` : "";
+  const body = `
+      <section class="page-hero product-hero">
+        <div class="product-hero-copy">
+          <span class="section-label">${escapeHTML(heroLabel)}</span>
+          <h1>${escapeHTML(h1)}</h1>
+          <p>${escapeHTML(intro)}</p>
+        </div>
+        <aside class="product-hero-panel">
+          <span>Updated</span>
+          <strong>${escapeHTML(new Date(generatedAt).toISOString().slice(0, 10))}</strong>
+          <p>Built from TechPulse product intelligence, GitHub, Hacker News, and video proof signals.</p>
+        </aside>
+      </section>
+      <section class="product-workbench seo-article">
+        <article class="product-detail">
+          <section class="quick-take">
+            <h2>Quick answer</h2>
+            <p>${escapeHTML(intro)}</p>
+          </section>
+          ${sectionHtml}
+          ${faqHtml}
+        </article>
+      </section>`;
+  return layout({
+    title,
+    description,
+    canonical,
+    body,
+    jsonLd,
+    lang: "en",
+    assetPrefix: "../",
+    navPrefix: "../",
+  });
+}
+
+function productComparisonTable(left, right) {
+  return `<div class="source-list">
+    <a href="../en/products/${slug(left.id || left.name)}.html"><strong>${escapeHTML(left.name)}</strong><span>Signal ${escapeHTML(left.signalScore || 0)} · ${escapeHTML(productEvidenceLine(left))}</span><p>${escapeHTML(englishProductSummary(left))}</p></a>
+    <a href="../en/products/${slug(right.id || right.name)}.html"><strong>${escapeHTML(right.name)}</strong><span>Signal ${escapeHTML(right.signalScore || 0)} · ${escapeHTML(productEvidenceLine(right))}</span><p>${escapeHTML(englishProductSummary(right))}</p></a>
+  </div>`;
+}
+
+function writeGuidePages(products, data) {
+  const generatedAt = data.generatedAt || new Date().toISOString();
+  const cursor = findProduct(products, "cursor") || products[0];
+  const claudeCode = findProduct(products, "claude-code") || products[1] || products[0];
+  const mcp = findProduct(products, "mcp") || findProduct(products, "Model Context Protocol") || products[0];
+  const codingProducts = products.filter((product) => /coding|agent|infra/i.test(product.category || "")).slice(0, 10);
+  const pages = [
+    {
+      slugName: "claude-code-vs-cursor",
+      title: "Claude Code vs Cursor: GitHub, Hacker News and video signals - TechPulse",
+      description: "A source-backed comparison of Claude Code and Cursor using GitHub repositories, Hacker News discussions, and video proof signals.",
+      heroLabel: "AI Coding Comparison",
+      h1: "Claude Code vs Cursor: which AI coding workflow is worth watching?",
+      intro: "Claude Code is closer to a terminal-native agent workflow, while Cursor is closer to an AI-native IDE. TechPulse compares them through public GitHub, Hacker News, and video proof signals rather than brand claims.",
+      sections: [
+        { title: "Signal comparison", body: productComparisonTable(claudeCode, cursor) },
+        { title: "When Claude Code is stronger", body: `<p>Claude Code is a better fit when the work starts in a repository or terminal and needs multi-file changes, refactors, git workflows, and command-line execution boundaries.</p>` },
+        { title: "When Cursor is stronger", body: `<p>Cursor is a better fit when the user wants an IDE-centered flow with codebase context, autocomplete, agent assistance, and a more visual editing environment.</p>` },
+        { title: "How to decide", body: `<p>Use Claude Code for terminal-first agent work and Cursor for IDE-first day-to-day coding. For teams, the final decision should include permission control, data policy, cost, and how easily each tool fits existing review workflows.</p>` },
+      ],
+      faq: [
+        { q: "Is Claude Code better than Cursor?", a: "Not universally. Claude Code is stronger for terminal-native agent workflows, while Cursor is stronger for IDE-centered editing and codebase navigation." },
+        { q: "How does TechPulse compare them?", a: "TechPulse combines public GitHub repositories, Hacker News discussions, video proof signals, and freshness indicators." },
+      ],
+    },
+    {
+      slugName: "best-ai-coding-tools",
+      title: "Best AI coding tools to watch: GitHub and HN signal radar - TechPulse",
+      description: "A daily-updated AI coding tools watchlist ranked by GitHub, Hacker News, and video proof signals.",
+      heroLabel: "AI Coding Watchlist",
+      h1: "Best AI coding tools to watch from GitHub and Hacker News signals",
+      intro: "The best AI coding tools are not just the loudest products. TechPulse tracks source-backed signals so developers and product teams can decide which tools deserve attention.",
+      sections: [
+        {
+          title: "Current watchlist",
+          body: `<div class="source-list">${codingProducts.map((product) => `<a href="../en/products/${slug(product.id || product.name)}.html"><strong>${escapeHTML(product.name)}</strong><span>Signal ${escapeHTML(product.signalScore || 0)} · ${escapeHTML(product.category || "AI Product")}</span><p>${escapeHTML(englishProductSummary(product))}</p></a>`).join("")}</div>`,
+        },
+        { title: "What signals matter", body: `<p>GitHub stars can show developer interest, but they are not enough. TechPulse also looks at repository count, forks, Hacker News discussion, video proof, and freshness so a short-term spike does not dominate the radar.</p>` },
+        { title: "How to use this list", body: `<p>Use this page as a research shortlist. Open the individual product profile before adoption, then check the official docs, pricing, privacy model, and integration limits.</p>` },
+      ],
+      faq: [
+        { q: "Which AI coding tool should I try first?", a: "Start with the tool that matches your workflow: Cursor for IDE-centered coding, Claude Code for terminal-native agent tasks, and MCP-related tools for integration infrastructure." },
+        { q: "Is this ranking sponsored?", a: "No. The page is generated from TechPulse public-source signals and links back to source evidence." },
+      ],
+    },
+    {
+      slugName: "model-context-protocol-guide",
+      title: "What is Model Context Protocol? MCP GitHub and HN signal guide - TechPulse",
+      description: "A practical explanation of Model Context Protocol with GitHub, Hacker News, and video proof signals tracked by TechPulse.",
+      heroLabel: "AI Infrastructure Guide",
+      h1: "What is Model Context Protocol, and why are AI teams watching it?",
+      intro: "Model Context Protocol is an emerging connection layer for AI agents, tools, and data sources. The important question is not just what MCP is, but whether its ecosystem is becoming durable.",
+      sections: [
+        { title: "Current MCP signal", body: `<div class="source-list"><a href="../en/products/${slug(mcp.id || mcp.name)}.html"><strong>${escapeHTML(mcp.name)}</strong><span>Signal ${escapeHTML(mcp.signalScore || 0)} · ${escapeHTML(productEvidenceLine(mcp))}</span><p>${escapeHTML(englishProductSummary(mcp))}</p></a></div>` },
+        { title: "Why MCP matters", body: `<p>AI agents need controlled ways to reach tools, files, APIs, and enterprise systems. MCP is interesting because it tries to standardize that connection layer instead of leaving every application to invent its own plugin model.</p>` },
+        { title: "What to watch next", body: `<p>The strongest MCP signals will come from production-grade servers, security reviews, permission models, enterprise integrations, and real workflows beyond demos.</p>` },
+      ],
+      faq: [
+        { q: "Is MCP only for developers?", a: "Today MCP is mostly developer-facing, but the long-term value is in making AI tools connect to business systems in a safer and more repeatable way." },
+        { q: "How does TechPulse track MCP?", a: "TechPulse watches MCP-related GitHub repositories, Hacker News discussions, and public video summaries, then aligns them into a product intelligence profile." },
+      ],
+    },
+  ];
+  for (const page of pages) {
+    fs.writeFileSync(path.join(guidesDir, `${page.slugName}.html`), guidePage({ ...page, generatedAt }));
+  }
+  return pages.map((page) => `/guides/${page.slugName}.html`);
+}
+
 function writeFeed(products, videos, data) {
   const generatedAt = data.generatedAt || new Date().toISOString();
   const items = [
@@ -468,7 +629,7 @@ function writeProductsJson(products, data) {
   fs.writeFileSync(path.join(root, "ai-products.json"), `${JSON.stringify(payload, null, 2)}\n`);
 }
 
-function writeLlms(products, videos, data) {
+function writeLlms(products, videos, data, guideUrls = []) {
   const lines = [
     "# TechPulse 科技脉动",
     "",
@@ -484,6 +645,9 @@ function writeLlms(products, videos, data) {
     `- Methodology: ${site}/pipeline.html`,
     `- RSS feed: ${site}/feed.xml`,
     `- Machine-readable product index: ${site}/ai-products.json`,
+    "",
+    "## Search guides",
+    ...guideUrls.map((url) => `- ${site}${url}`),
     "",
     "## Product intelligence pages",
     ...products.slice(0, 20).map((product) => `- ${product.name}: ${site}/products/${slug(product.id || product.name)}.html`),
@@ -504,6 +668,7 @@ function writeLlms(products, videos, data) {
 fs.mkdirSync(productsDir, { recursive: true });
 fs.mkdirSync(topicsDir, { recursive: true });
 fs.mkdirSync(enProductsDir, { recursive: true });
+fs.mkdirSync(guidesDir, { recursive: true });
 
 const productData = readWindowJson(productDataPath, "TechPulseProducts");
 const siteData = readWindowJson(siteDataPath, "TechPulseData");
@@ -516,13 +681,14 @@ for (const product of products) {
 }
 
 fs.writeFileSync(path.join(enDir, "products.html"), writeEnglishProductIndex(products, { generatedAt: productData.generatedAt || siteData.generatedAt }));
+const guideUrls = writeGuidePages(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
 
 for (const video of videos.slice(0, 40)) {
   fs.writeFileSync(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), topicPage(video, siteData));
 }
 
-writeSitemap(products, videos);
+writeSitemap(products, videos, guideUrls);
 writeFeed(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt });
 writeProductsJson(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
-writeLlms(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt });
-console.log(`Generated ${products.length} zh product pages, ${products.length} en product pages, ${Math.min(videos.length, 40)} topic pages, sitemap.xml, feed.xml, ai-products.json, llms.txt`);
+writeLlms(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt }, guideUrls);
+console.log(`Generated ${products.length} zh product pages, ${products.length} en product pages, ${guideUrls.length} guide pages, ${Math.min(videos.length, 40)} topic pages, sitemap.xml, feed.xml, ai-products.json, llms.txt`);

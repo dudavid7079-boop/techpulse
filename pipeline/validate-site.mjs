@@ -89,7 +89,10 @@ function listHtmlFiles() {
           .map((file) => `en/${entry.name}/${file}`);
       })
     : [];
-  return [...topLevel, ...productPages, ...topicPages, ...englishPages].sort();
+  const guidePages = exists("guides")
+    ? fs.readdirSync(path.join(root, "guides")).filter((file) => file.endsWith(".html")).map((file) => `guides/${file}`)
+    : [];
+  return [...topLevel, ...productPages, ...topicPages, ...englishPages, ...guidePages].sort();
 }
 
 for (const file of requiredFiles) {
@@ -152,6 +155,9 @@ if (!llms.includes("TechPulse") || !llms.includes("Product intelligence pages"))
 if (!llms.includes("ai-products.json") || !llms.includes("feed.xml")) {
   errors.push("llms.txt should expose RSS feed and machine-readable product index.");
 }
+if (!llms.includes("Search guides")) {
+  errors.push("llms.txt should expose search guide pages for GEO discovery.");
+}
 if (!feed.includes("<rss") || !feed.includes("<item>")) {
   errors.push("feed.xml should be a populated RSS feed.");
 }
@@ -160,6 +166,9 @@ if (!sitemap.includes("/products/") || !sitemap.includes("/topics/")) {
 }
 if (!sitemap.includes("xmlns:xhtml") || !sitemap.includes("/en/products/")) {
   errors.push("sitemap.xml should include hreflang alternates and English product pages.");
+}
+if (!sitemap.includes("/guides/claude-code-vs-cursor.html")) {
+  errors.push("sitemap.xml should include long-tail search guide pages.");
 }
 if (!robots.includes("indexnow-key.txt")) {
   errors.push("robots.txt should expose the IndexNow key location.");
