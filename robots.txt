@@ -5,3 +5,4 @@ Disallow: /logo-options.html
 
 Sitemap: https://techpulse.attodigitalhk.com/sitemap.xml
 LLM-Index: https://techpulse.attodigitalhk.com/llms.txt
+IndexNow-Key: https://techpulse.attodigitalhk.com/indexnow-key.txt

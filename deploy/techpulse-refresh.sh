@@ -104,6 +104,8 @@ if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
   node pipeline/build-products.mjs pipeline/product-seeds.generated.json
   CURRENT_STAGE="validation"
   npm run prelaunch
+  CURRENT_STAGE="indexnow"
+  npm run indexnow || echo "IndexNow submission skipped; continuing refresh."
 elif command -v docker >/dev/null 2>&1; then
   DOCKER_ENV_ARGS=""
   if [ -f "$ENV_FILE" ]; then
@@ -121,7 +123,7 @@ elif command -v docker >/dev/null 2>&1; then
     -v "${TECHPULSE_DIR}:/work" \
     -w /work \
     "$NODE_IMAGE" \
-    sh -lc 'node pipeline/run-real-preview.mjs && node pipeline/discover-products.mjs && node pipeline/collect-product-signals.mjs pipeline/product-seeds.generated.json && node pipeline/build-products.mjs pipeline/product-seeds.generated.json && npm run prelaunch'
+    sh -lc 'node pipeline/run-real-preview.mjs && node pipeline/discover-products.mjs && node pipeline/collect-product-signals.mjs pipeline/product-seeds.generated.json && node pipeline/build-products.mjs pipeline/product-seeds.generated.json && npm run prelaunch && (npm run indexnow || echo "IndexNow submission skipped; continuing refresh.")'
 else
   echo "Error: node/npm are not installed and docker is not available." >&2
   exit 127

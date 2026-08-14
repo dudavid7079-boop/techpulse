@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "python3 -m http.server 8102 --bind 127.0.0.1",
     "runtime:init": "node pipeline/init-runtime-data.mjs",
-    "check": "node --check app.js && node --check auth.js && node --check pricing.js && node --check search.js && node --check subscribe.js && node --check topics.js && node --check products.js && node --check channels.js && node --check admin.js && node --check account.js && node --check data-loader.js && node --check product-loader.js && node --check product-data.js && node --check product-data.generated.js && node --check playback-config.js && node --check analytics-config.js && node --check analytics.js && node --check i18n.js && node --check pipeline/init-runtime-data.mjs && node --check pipeline/discover-products.mjs && node --check pipeline/check-invidious.mjs && node --check pipeline/collect-product-signals.mjs && node --check pipeline/build-products.mjs && node --check pipeline/generate-seo-pages.mjs && node --check pipeline/send-alert.mjs",
+    "check": "node --check app.js && node --check auth.js && node --check pricing.js && node --check search.js && node --check subscribe.js && node --check topics.js && node --check products.js && node --check channels.js && node --check admin.js && node --check account.js && node --check data-loader.js && node --check product-loader.js && node --check product-data.js && node --check product-data.generated.js && node --check playback-config.js && node --check analytics-config.js && node --check analytics.js && node --check i18n.js && node --check pipeline/init-runtime-data.mjs && node --check pipeline/discover-products.mjs && node --check pipeline/check-invidious.mjs && node --check pipeline/collect-product-signals.mjs && node --check pipeline/build-products.mjs && node --check pipeline/generate-seo-pages.mjs && node --check pipeline/submit-indexnow.mjs && node --check pipeline/send-alert.mjs",
     "validate": "node pipeline/validate-site.mjs",
     "prelaunch": "npm run runtime:init && npm run seo && npm run check && npm run validate",
     "domain:set": "node pipeline/set-production-domain.mjs",
@@ -16,6 +16,7 @@
     "channels:test": "RSS_RECENT_HOURS=168 node pipeline/test-channel.mjs pipeline/channels.sample.json pipeline/channel-tests.json",
     "invidious:check": "node pipeline/check-invidious.mjs",
     "seo": "node pipeline/generate-seo-pages.mjs",
+    "indexnow": "node pipeline/submit-indexnow.mjs",
     "alert:test": "node pipeline/send-alert.mjs test manual"
   }
 }

@@ -15,6 +15,7 @@ const requiredFiles = [
   "robots.txt",
   "sitemap.xml",
   "llms.txt",
+  "indexnow-key.txt",
   "feed.xml",
   "ai-products.json",
   "site.webmanifest",
@@ -159,6 +160,9 @@ if (!sitemap.includes("/products/") || !sitemap.includes("/topics/")) {
 }
 if (!sitemap.includes("xmlns:xhtml") || !sitemap.includes("/en/products/")) {
   errors.push("sitemap.xml should include hreflang alternates and English product pages.");
+}
+if (!robots.includes("indexnow-key.txt")) {
+  errors.push("robots.txt should expose the IndexNow key location.");
 }
 
 if (warnings.length) {
