@@ -3269,6 +3269,28 @@ input {
   line-height: 1.55;
 }
 
+.guide-link-section {
+  padding-top: 42px;
+  padding-bottom: 22px;
+}
+
+.seo-detail-page .guide-link-section {
+  padding: 0;
+}
+
+.guide-link-section > article {
+  width: 100%;
+}
+
+.guide-link-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-link-grid a {
+  min-height: 132px;
+  align-content: start;
+}
+
 .fit-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -3314,6 +3336,7 @@ input {
   .signal-mix,
   .source-signal-grid,
   .source-evidence,
+  .guide-link-grid,
   .fit-grid {
     grid-template-columns: 1fr;
   }

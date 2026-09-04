@@ -10,6 +10,48 @@ const topicsDir = path.join(root, "topics");
 const enDir = path.join(root, "en");
 const enProductsDir = path.join(enDir, "products");
 const guidesDir = path.join(root, "guides");
+const searchGuides = [
+  {
+    slugName: "claude-code-vs-cursor",
+    title: "Claude Code vs Cursor",
+    description: "Terminal-native agent workflow vs AI-native IDE.",
+  },
+  {
+    slugName: "best-ai-coding-tools",
+    title: "Best AI coding tools",
+    description: "A source-backed watchlist for developers and product teams.",
+  },
+  {
+    slugName: "model-context-protocol-guide",
+    title: "Model Context Protocol guide",
+    description: "Why MCP matters for AI agents, tools, and data access.",
+  },
+  {
+    slugName: "claude-code-vs-gemini-cli",
+    title: "Claude Code vs Gemini CLI",
+    description: "Compare two terminal-first AI coding workflows.",
+  },
+  {
+    slugName: "langchain-vs-flowise",
+    title: "LangChain vs Flowise",
+    description: "Code-first framework vs visual AI workflow builder.",
+  },
+  {
+    slugName: "dify-vs-langflow",
+    title: "Dify vs Langflow",
+    description: "AI app platform vs visual LLM orchestration workflow.",
+  },
+  {
+    slugName: "openhands-vs-autogpt",
+    title: "OpenHands vs AutoGPT",
+    description: "Agent developer platform vs autonomous agent experiment.",
+  },
+  {
+    slugName: "best-open-source-ai-agent-frameworks",
+    title: "Best open-source AI agent frameworks",
+    description: "A Google-friendly research shortlist from public signals.",
+  },
+];
 
 function readWindowJson(filePath, globalName, suffixPattern = /;\s*$/) {
   const source = fs.readFileSync(filePath, "utf8");
@@ -80,6 +122,20 @@ function productEvidenceLine(product) {
   return `${repoCount} GitHub repos, ${stars} stars, ${hnMatches} HN discussions, ${comments} comments, ${videoCount} video proof signals`;
 }
 
+function guideLinkGrid(currentSlug = "") {
+  const links = searchGuides
+    .filter((guide) => guide.slugName !== currentSlug)
+    .slice(0, 6)
+    .map((guide) => `<a href="${site}/guides/${guide.slugName}.html"><strong>${escapeHTML(guide.title)}</strong><span>Google search guide</span><p>${escapeHTML(guide.description)}</p></a>`)
+    .join("");
+  return `<section class="source-evidence guide-link-section">
+            <article>
+              <h2>Related AI search guides</h2>
+              <div class="source-list guide-link-grid">${links}</div>
+            </article>
+          </section>`;
+}
+
 function altLinks(alternates = []) {
   return alternates.map((item) => `    <link rel="alternate" hreflang="${escapeAttr(item.lang)}" href="${escapeAttr(item.href)}" />`).join("\n");
 }
@@ -109,7 +165,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", a
     <meta name="twitter:image" content="${site}/assets/og-image.png" />
     <link rel="canonical" href="${canonical}" />
     <meta property="og:url" content="${canonical}" />${alternateBlock}
-    <link rel="stylesheet" href="${assetPrefix}styles.css?v=20260814-seo-en" />
+    <link rel="stylesheet" href="${assetPrefix}styles.css?v=20260904-google-guides" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   </head>
   <body class="seo-detail-page">
@@ -117,6 +173,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", a
       <a class="brand" href="${navPrefix}index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="${assetPrefix}assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
       <nav aria-label="主导航">
         <a href="${navPrefix}index.html#products">产品雷达</a>
+        <a href="${navPrefix}guides/claude-code-vs-cursor.html">Guides</a>
         <a href="${navPrefix}index.html#hot">视频热榜</a>
         <a href="${navPrefix}search.html">搜索</a>
         <a href="${navPrefix}channels.html">来源</a>
@@ -185,6 +242,7 @@ function productPage(product, data) {
           <section class="source-evidence"><article><h2>GitHub 源码生态</h2>${repoList(product)}</article><article><h2>Hacker News / 社区讨论</h2>${hnList(product)}</article></section>
           <section class="source-evidence"><article><h2>海外视频证明</h2>${matchedVideoList(product, data.videos || [])}</article><article><h2>适合谁 / 不适合谁</h2><p><strong>适合：</strong>${escapeHTML(product.bestFor || "需要跟踪 AI 产品变化的中文用户。")}</p><p><strong>不适合：</strong>${escapeHTML(product.notFor || "需要官方采购建议或法律合规意见的场景。")}</p><p><strong>风险：</strong>${escapeHTML(product.risks || "仍需结合官方文档与实际测试验证。")}</p></article></section>
           <section class="source-evidence"><article><h2>常见问题</h2><h3>${escapeHTML(product.name)} 值得关注吗？</h3><p>当前信号分为 ${escapeHTML(product.signalScore || 0)}，TechPulse 会综合 GitHub、Hacker News、视频证明和新鲜度判断是否值得跟进。</p><h3>TechPulse 如何生成这个档案？</h3><p>系统每天抓取公开来源，按产品实体对齐 GitHub 仓库、社区讨论和海外视频摘要，再生成中文情报卡。</p></article></section>
+          ${guideLinkGrid()}
         </article>
       </section>`;
   const jsonLd = {
@@ -254,6 +312,7 @@ function productPageEn(product, data) {
           <section class="source-evidence"><article><h2>GitHub ecosystem</h2>${repoList(product)}</article><article><h2>Hacker News discussion</h2>${hnList(product)}</article></section>
           <section class="source-evidence"><article><h2>Video proof</h2>${matchedVideoList(product, data.videos || [], "../../topics")}</article><article><h2>Who should track it?</h2><p>TechPulse is useful for founders, developers, product managers, and research teams who need a fast signal on global AI products.</p><p><strong>Risk notes:</strong> Signals are based on public metadata and should be checked against official documentation before adoption.</p></article></section>
           <section class="source-evidence"><article><h2>FAQ</h2><h3>Is ${escapeHTML(product.name)} worth watching?</h3><p>Current signal score: ${escapeHTML(product.signalScore || 0)}. TechPulse combines GitHub, Hacker News, video proof, and freshness signals to decide whether a product deserves attention.</p><h3>How does TechPulse build this profile?</h3><p>The system refreshes public sources daily, aligns them to product entities, and publishes a readable intelligence card with source evidence.</p></article></section>
+          ${guideLinkGrid()}
         </article>
       </section>`;
   const jsonLd = {
@@ -399,6 +458,7 @@ function writeEnglishProductIndex(products, data) {
         <article><span>Hacker News</span><b>HN</b><p>Engineer discussions, points, comments, and debates.</p></article>
         <article><span>Video Proof</span><b>Read</b><p>Chinese-readable summaries of public overseas videos.</p></article>
       </section>
+      ${guideLinkGrid()}
       <section class="product-radar-section">
         <span class="section-label">Today's Signal Radar</span>
         <div class="product-radar-grid">${cards}</div>
@@ -476,6 +536,7 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
           </section>
           ${sectionHtml}
           ${faqHtml}
+          ${guideLinkGrid(slugName)}
         </article>
       </section>`;
   return layout({
@@ -501,7 +562,14 @@ function writeGuidePages(products, data) {
   const generatedAt = data.generatedAt || new Date().toISOString();
   const cursor = findProduct(products, "cursor") || products[0];
   const claudeCode = findProduct(products, "claude-code") || products[1] || products[0];
+  const geminiCli = findProduct(products, "gemini-cli") || products.find((product) => /gemini/i.test(product.name || "")) || products[2] || products[0];
   const mcp = findProduct(products, "mcp") || findProduct(products, "Model Context Protocol") || products[0];
+  const langchain = findProduct(products, "langchain") || products.find((product) => /langchain/i.test(product.name || "")) || products[0];
+  const flowise = findProduct(products, "flowise") || products.find((product) => /flowise/i.test(product.name || "")) || products[1] || products[0];
+  const dify = findProduct(products, "dify") || products.find((product) => /dify/i.test(product.name || "")) || flowise;
+  const langflow = findProduct(products, "langflow") || products.find((product) => /langflow/i.test(product.name || "")) || langchain;
+  const openhands = findProduct(products, "openhands") || products.find((product) => /open ?hands/i.test(product.name || "")) || products[0];
+  const autogpt = findProduct(products, "autogpt") || products.find((product) => /auto ?gpt/i.test(product.name || "")) || products[1] || products[0];
   const codingProducts = products.filter((product) => /coding|agent|infra/i.test(product.category || "")).slice(0, 10);
   const pages = [
     {
@@ -557,6 +625,98 @@ function writeGuidePages(products, data) {
       faq: [
         { q: "Is MCP only for developers?", a: "Today MCP is mostly developer-facing, but the long-term value is in making AI tools connect to business systems in a safer and more repeatable way." },
         { q: "How does TechPulse track MCP?", a: "TechPulse watches MCP-related GitHub repositories, Hacker News discussions, and public video summaries, then aligns them into a product intelligence profile." },
+      ],
+    },
+    {
+      slugName: "claude-code-vs-gemini-cli",
+      title: "Claude Code vs Gemini CLI: terminal AI coding tools compared - TechPulse",
+      description: "Compare Claude Code and Gemini CLI through GitHub, Hacker News, and public video proof signals.",
+      heroLabel: "Terminal AI Coding Comparison",
+      h1: "Claude Code vs Gemini CLI: which terminal AI coding tool should teams watch?",
+      intro: "Claude Code and Gemini CLI both aim at terminal-first AI coding, but the adoption question is about workflow fit, repository context, permission boundaries, and ecosystem signals.",
+      sections: [
+        { title: "Signal comparison", body: productComparisonTable(claudeCode, geminiCli) },
+        { title: "When Claude Code fits better", body: `<p>Claude Code is stronger when a team wants an agent that can reason across repository files, execute bounded commands, and stay close to existing git review habits.</p>` },
+        { title: "When Gemini CLI fits better", body: `<p>Gemini CLI is worth watching when a team is already deep in the Google AI ecosystem or wants a lightweight command-line assistant that can fit into existing shell workflows.</p>` },
+        { title: "Adoption checklist", body: `<p>Before choosing either tool, test repository permissions, command execution scope, pricing, code privacy, and whether developers can review changes before they land.</p>` },
+      ],
+      faq: [
+        { q: "Are Claude Code and Gemini CLI direct replacements for an IDE?", a: "No. They are better understood as terminal-first assistants that can complement an IDE or code review workflow." },
+        { q: "What should engineering teams compare first?", a: "Start with permission control, repository context quality, command execution behavior, and how easy it is to review generated changes." },
+      ],
+    },
+    {
+      slugName: "langchain-vs-flowise",
+      title: "LangChain vs Flowise: AI workflow stack comparison - TechPulse",
+      description: "A practical comparison of LangChain and Flowise using open-source, community, and video proof signals.",
+      heroLabel: "AI Workflow Comparison",
+      h1: "LangChain vs Flowise: code-first framework or visual AI builder?",
+      intro: "LangChain is usually a code-first framework for building LLM applications, while Flowise gives teams a visual workflow surface. The best choice depends on who builds the workflow and how much control they need.",
+      sections: [
+        { title: "Signal comparison", body: productComparisonTable(langchain, flowise) },
+        { title: "When LangChain fits better", body: `<p>LangChain is a better fit for engineering teams that need code-level control, custom chains, deeper integrations, testing, and production deployment discipline.</p>` },
+        { title: "When Flowise fits better", body: `<p>Flowise is stronger when teams want to prototype LLM workflows visually, share flows with non-engineers, and move quickly before committing to production code.</p>` },
+        { title: "Decision rule", body: `<p>Use Flowise to learn, prototype, and align stakeholders. Use LangChain when the workflow becomes part of a production system that needs tests, reviews, and deeper maintainability.</p>` },
+      ],
+      faq: [
+        { q: "Is Flowise built on LangChain?", a: "Flowise has historically been associated with visual LLM orchestration patterns inspired by the LangChain ecosystem, but teams should check current architecture and docs before adoption." },
+        { q: "Which is better for production?", a: "Engineering-heavy teams usually prefer code-first control, while visual builders are useful for exploration and internal tools." },
+      ],
+    },
+    {
+      slugName: "dify-vs-langflow",
+      title: "Dify vs Langflow: AI app platform and workflow builder comparison - TechPulse",
+      description: "Compare Dify and Langflow for AI app building, orchestration, and team adoption using TechPulse public signals.",
+      heroLabel: "AI App Builder Comparison",
+      h1: "Dify vs Langflow: which AI app builder should teams evaluate?",
+      intro: "Dify and Langflow sit in the practical layer of AI application building. The key question is whether a team needs a packaged app platform, a visual orchestration layer, or a bridge into custom engineering work.",
+      sections: [
+        { title: "Signal comparison", body: productComparisonTable(dify, langflow) },
+        { title: "When Dify fits better", body: `<p>Dify is usually a stronger candidate when a team wants an AI app platform with productized workflows, prompt operations, datasets, and deployment-oriented features.</p>` },
+        { title: "When Langflow fits better", body: `<p>Langflow is useful when a team wants a visual way to compose LLM flows, experiment with chains, and inspect how components connect before turning the workflow into code.</p>` },
+        { title: "What to test", body: `<p>Test data connectors, permissions, model routing, observability, deployment model, and how easily builders can move from prototype to production maintenance.</p>` },
+      ],
+      faq: [
+        { q: "Are Dify and Langflow no-code tools?", a: "They can reduce coding for prototypes, but serious production use still needs security review, integration testing, and operational ownership." },
+        { q: "How should a team choose?", a: "Choose based on deployment needs, team skill mix, data governance, and whether the workflow needs to become maintainable software." },
+      ],
+    },
+    {
+      slugName: "openhands-vs-autogpt",
+      title: "OpenHands vs AutoGPT: open-source AI agent comparison - TechPulse",
+      description: "A source-backed comparison of OpenHands and AutoGPT using GitHub, Hacker News, and video proof signals.",
+      heroLabel: "Open-Source Agent Comparison",
+      h1: "OpenHands vs AutoGPT: which open-source AI agent project is worth tracking?",
+      intro: "OpenHands and AutoGPT represent two important waves of open-source AI agents. AutoGPT helped popularize autonomous agent experiments, while OpenHands is more focused on software engineering agent workflows.",
+      sections: [
+        { title: "Signal comparison", body: productComparisonTable(openhands, autogpt) },
+        { title: "When OpenHands fits better", body: `<p>OpenHands is worth watching for developer-agent workflows where repository access, task execution, environment control, and reviewable changes matter.</p>` },
+        { title: "When AutoGPT fits better", body: `<p>AutoGPT remains useful as a reference point for autonomous agent patterns, experimentation, and the history of open-source agent interest.</p>` },
+        { title: "Risk notes", body: `<p>Open-source agents can run commands, call tools, and modify files. Teams should test sandboxing, secrets handling, logs, and permission boundaries before real usage.</p>` },
+      ],
+      faq: [
+        { q: "Is AutoGPT still relevant?", a: "It is still relevant as a landmark open-source agent project and as a comparison point for newer agent systems." },
+        { q: "What matters most for open-source agents?", a: "The most important checks are execution safety, code review, tool permissions, reproducibility, and active maintenance." },
+      ],
+    },
+    {
+      slugName: "best-open-source-ai-agent-frameworks",
+      title: "Best open-source AI agent frameworks to watch - TechPulse",
+      description: "A public-signal watchlist of open-source AI agent frameworks for builders, founders, and engineering teams.",
+      heroLabel: "Open-Source Agent Watchlist",
+      h1: "Best open-source AI agent frameworks to watch from public signals",
+      intro: "Open-source AI agent frameworks move quickly, and search results often mix demos, abandoned experiments, and production-ready projects. TechPulse uses public signals to build a practical watchlist.",
+      sections: [
+        {
+          title: "Current open-source agent watchlist",
+          body: `<div class="source-list">${products.filter((product) => /agent|coding|infra|framework/i.test(`${product.category || ""} ${product.name || ""}`)).slice(0, 12).map((product) => `<a href="../en/products/${slug(product.id || product.name)}.html"><strong>${escapeHTML(product.name)}</strong><span>Signal ${escapeHTML(product.signalScore || 0)} · ${escapeHTML(product.category || "AI Product")}</span><p>${escapeHTML(englishProductSummary(product))}</p></a>`).join("")}</div>`,
+        },
+        { title: "What makes a framework worth watching", body: `<p>Look for active maintainers, real examples, clear permission boundaries, integrations, repeatable evaluations, documentation quality, and evidence that users are moving beyond demos.</p>` },
+        { title: "How to evaluate before adoption", body: `<p>Clone the project, run a small repository task, inspect logs and permissions, test failure modes, and compare the result against a human code review baseline.</p>` },
+      ],
+      faq: [
+        { q: "Should startups build on open-source agent frameworks?", a: "They can, but they should validate maintenance activity, license terms, security boundaries, and whether the framework fits their product workflow." },
+        { q: "Do GitHub stars prove quality?", a: "No. Stars are only one signal. TechPulse combines stars with repositories, discussions, video proof, and freshness signals." },
       ],
     },
   ];
