@@ -5,6 +5,7 @@ const root = process.cwd();
 const requiredFiles = [
   "index.html",
   "404.html",
+  "guides.html",
   "data.generated.js",
   "data.js",
   "product-data.js",
@@ -158,6 +159,9 @@ if (!llms.includes("ai-products.json") || !llms.includes("feed.xml")) {
 if (!llms.includes("Search guides")) {
   errors.push("llms.txt should expose search guide pages for GEO discovery.");
 }
+if (!llms.includes("guides.html")) {
+  errors.push("llms.txt should expose the AI search guide hub.");
+}
 if (!feed.includes("<rss") || !feed.includes("<item>")) {
   errors.push("feed.xml should be a populated RSS feed.");
 }
@@ -169,6 +173,9 @@ if (!sitemap.includes("xmlns:xhtml") || !sitemap.includes("/en/products/")) {
 }
 if (!sitemap.includes("/guides/claude-code-vs-cursor.html")) {
   errors.push("sitemap.xml should include long-tail search guide pages.");
+}
+if (!sitemap.includes("/guides.html")) {
+  errors.push("sitemap.xml should include the AI search guide hub.");
 }
 if (!robots.includes("indexnow-key.txt")) {
   errors.push("robots.txt should expose the IndexNow key location.");

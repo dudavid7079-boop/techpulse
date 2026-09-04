@@ -173,7 +173,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", a
       <a class="brand" href="${navPrefix}index.html" aria-label="TechPulse 首页"><img class="brand-logo" src="${assetPrefix}assets/logo-mark.png" width="62" height="42" decoding="async" alt="" /><span class="brand-text"><strong>TechPulse</strong><small>科技脉动</small></span></a>
       <nav aria-label="主导航">
         <a href="${navPrefix}index.html#products">产品雷达</a>
-        <a href="${navPrefix}guides/claude-code-vs-cursor.html">Guides</a>
+        <a href="${navPrefix}guides.html">Guides</a>
         <a href="${navPrefix}index.html#hot">视频热榜</a>
         <a href="${navPrefix}search.html">搜索</a>
         <a href="${navPrefix}channels.html">来源</a>
@@ -385,7 +385,7 @@ function topicPage(video, data) {
 }
 
 function writeSitemap(products, videos, guideUrls = []) {
-  const baseUrls = ["/", "/products.html", "/en/products.html", "/topics.html", "/search.html", "/channels.html", "/subscribe.html", "/pricing.html", "/pipeline.html"];
+  const baseUrls = ["/", "/products.html", "/en/products.html", "/guides.html", "/topics.html", "/search.html", "/channels.html", "/subscribe.html", "/pricing.html", "/pipeline.html"];
   const productUrls = products.flatMap((product) => [`/products/${slug(product.id || product.name)}.html`, `/en/products/${slug(product.id || product.name)}.html`]);
   const topicUrls = videos.slice(0, 40).map((video) => `/topics/${slug(video.videoId || video.topic)}.html`);
   const urls = [...baseUrls, ...guideUrls, ...productUrls, ...topicUrls];
@@ -404,8 +404,63 @@ function writeSitemap(products, videos, guideUrls = []) {
     }
     return "";
   };
-  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
+  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : url === "/guides.html" || guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
   fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`);
+}
+
+function writeGuideIndex(data) {
+  const generatedAt = data.generatedAt || new Date().toISOString();
+  const cards = searchGuides.map((guide, index) => `
+          <a href="./guides/${guide.slugName}.html">
+            <strong>${String(index + 1).padStart(2, "0")} · ${escapeHTML(guide.title)}</strong>
+            <span>Google search guide</span>
+            <p>${escapeHTML(guide.description)}</p>
+          </a>`).join("");
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "TechPulse AI Search Guides",
+    description: "AI tool comparison guides and source-backed research pages for Google search users.",
+    url: `${site}/guides.html`,
+    inLanguage: "en",
+    dateModified: generatedAt,
+    hasPart: searchGuides.map((guide) => ({
+      "@type": "Article",
+      name: guide.title,
+      url: `${site}/guides/${guide.slugName}.html`,
+    })),
+  };
+  const body = `
+      <section class="page-hero product-hero">
+        <div class="product-hero-copy">
+          <span class="section-label">Google Search Guides</span>
+          <h1>AI tool comparisons built from public engineering signals.</h1>
+          <p>Use TechPulse guides to compare AI coding tools, agent frameworks, workflow builders, and MCP infrastructure through GitHub, Hacker News, and video proof signals.</p>
+        </div>
+        <aside class="product-hero-panel">
+          <span>Guide Index</span>
+          <strong>${String(searchGuides.length).padStart(2, "0")} search pages</strong>
+          <p>Designed as a crawlable hub for high-intent Google queries and internal discovery.</p>
+        </aside>
+      </section>
+      <section class="section guide-link-section">
+        <div class="section-heading">
+          <span class="section-label">Decision Pages</span>
+          <h2>Compare tools before you trial them.</h2>
+          <p>Each guide links back to product profiles and source evidence, then links sideways to related AI research pages.</p>
+        </div>
+        <div class="source-list guide-link-grid">${cards}</div>
+      </section>`;
+  return layout({
+    title: "AI Tool Comparison Guides - TechPulse",
+    description: "TechPulse AI search guides compare AI coding tools, open-source agent frameworks, workflow builders, and MCP infrastructure using public signals.",
+    canonical: `${site}/guides.html`,
+    body,
+    jsonLd,
+    lang: "en",
+    assetPrefix: "./",
+    navPrefix: "./",
+  });
 }
 
 function writeEnglishProductIndex(products, data) {
@@ -801,6 +856,7 @@ function writeLlms(products, videos, data, guideUrls = []) {
     `- Home: ${site}/`,
     `- Product radar: ${site}/products.html`,
     `- English product radar: ${site}/en/products.html`,
+    `- AI search guides: ${site}/guides.html`,
     `- Search: ${site}/search.html`,
     `- Methodology: ${site}/pipeline.html`,
     `- RSS feed: ${site}/feed.xml`,
@@ -842,6 +898,7 @@ for (const product of products) {
 
 fs.writeFileSync(path.join(enDir, "products.html"), writeEnglishProductIndex(products, { generatedAt: productData.generatedAt || siteData.generatedAt }));
 const guideUrls = writeGuidePages(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
+fs.writeFileSync(path.join(root, "guides.html"), writeGuideIndex({ generatedAt: productData.generatedAt || siteData.generatedAt }));
 
 for (const video of videos.slice(0, 40)) {
   fs.writeFileSync(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), topicPage(video, siteData));

@@ -8,6 +8,7 @@ Last updated: 2026-07-07T09:54:59.839Z
 - Home: https://techpulse.attodigitalhk.com/
 - Product radar: https://techpulse.attodigitalhk.com/products.html
 - English product radar: https://techpulse.attodigitalhk.com/en/products.html
+- AI search guides: https://techpulse.attodigitalhk.com/guides.html
 - Search: https://techpulse.attodigitalhk.com/search.html
 - Methodology: https://techpulse.attodigitalhk.com/pipeline.html
 - RSS feed: https://techpulse.attodigitalhk.com/feed.xml
