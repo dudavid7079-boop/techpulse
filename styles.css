@@ -945,6 +945,29 @@ input {
   border-bottom: 1px solid var(--line);
 }
 
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 18px 5vw 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.breadcrumb-trail a {
+  color: #334155;
+}
+
+.breadcrumb-trail a:hover {
+  color: var(--blue);
+}
+
+.breadcrumb-trail span[aria-current="page"] {
+  color: var(--blue);
+}
+
 .page-hero h1 {
   max-width: 980px;
   margin: 14px 0 14px;

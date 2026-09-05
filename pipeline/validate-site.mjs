@@ -131,6 +131,10 @@ for (const file of htmlFiles) {
   if (!/property="og:image" content="https:\/\/[^"']+\/assets\/og-image\.png"/.test(html)) {
     errors.push(`${file} should use an absolute production og:image URL.`);
   }
+
+  if ((file.startsWith("products/") || file.startsWith("en/products/") || file.startsWith("guides/") || file.startsWith("topics/") || file === "guides.html") && !html.includes('"@type":"BreadcrumbList"')) {
+    errors.push(`${file} should include BreadcrumbList structured data.`);
+  }
 }
 
 const dataLoader = exists("data-loader.js") ? read("data-loader.js") : "";

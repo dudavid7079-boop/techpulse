@@ -140,8 +140,34 @@ function altLinks(alternates = []) {
   return alternates.map((item) => `    <link rel="alternate" hreflang="${escapeAttr(item.lang)}" href="${escapeAttr(item.href)}" />`).join("\n");
 }
 
-function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", assetPrefix = "../", navPrefix = "../", alternates = [] }) {
+function breadcrumbTrail(items = []) {
+  if (!items.length) return "";
+  return `<nav class="breadcrumb-trail" aria-label="Breadcrumb">${items.map((item, index) => {
+    const label = escapeHTML(item.name);
+    if (index === items.length - 1) return `<span aria-current="page">${label}</span>`;
+    return `<a href="${escapeAttr(item.href)}">${label}</a>`;
+  }).join("<span>/</span>")}</nav>`;
+}
+
+function breadcrumbJsonLd(items = []) {
+  if (!items.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", assetPrefix = "../", navPrefix = "../", alternates = [], breadcrumbs = [] }) {
   const alternateBlock = alternates.length ? `\n${altLinks(alternates)}` : "";
+  const breadcrumbLd = breadcrumbJsonLd(breadcrumbs);
+  const breadcrumbScript = breadcrumbLd ? `\n    <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>` : "";
+  const breadcrumbBlock = breadcrumbTrail(breadcrumbs);
   return `<!doctype html>
 <html lang="${lang}">
   <head>
@@ -166,7 +192,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", a
     <link rel="canonical" href="${canonical}" />
     <meta property="og:url" content="${canonical}" />${alternateBlock}
     <link rel="stylesheet" href="${assetPrefix}styles.css?v=20260904-google-guides" />
-    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>${breadcrumbScript}
   </head>
   <body class="seo-detail-page">
     <header class="site-header">
@@ -181,7 +207,7 @@ function layout({ title, description, canonical, body, jsonLd, lang = "zh-CN", a
         <a class="nav-cta" href="${navPrefix}subscribe.html">订阅</a>
       </nav>
     </header>
-    <main>${body}</main>
+    <main>${breadcrumbBlock}${body}</main>
     <footer class="site-footer"><span>TechPulse · 科技脉动</span><span>AI 产品情报</span></footer>
     <script src="${assetPrefix}i18n.js?v=20260810-bilingual"></script>
   </body>
@@ -274,6 +300,11 @@ function productPage(product, data) {
       { lang: "en", href: englishUrl },
       { lang: "x-default", href: canonical },
     ],
+    breadcrumbs: [
+      { name: "Home", href: "../index.html", url: `${site}/` },
+      { name: "Product Radar", href: "../products.html", url: `${site}/products.html` },
+      { name: product.name, href: `../products/${slug(product.id || product.name)}.html`, url: canonical },
+    ],
   });
 }
 
@@ -348,6 +379,11 @@ function productPageEn(product, data) {
       { lang: "zh-CN", href: zhUrl },
       { lang: "x-default", href: zhUrl },
     ],
+    breadcrumbs: [
+      { name: "Home", href: "../../index.html", url: `${site}/` },
+      { name: "AI Product Radar", href: "../products.html", url: `${site}/en/products.html` },
+      { name: product.name, href: `../products/${slug(product.id || product.name)}.html`, url: canonical },
+    ],
   });
 }
 
@@ -381,7 +417,18 @@ function topicPage(video, data) {
     url: canonical,
     publisher: { "@type": "Organization", name: "TechPulse 科技脉动", logo: { "@type": "ImageObject", url: `${site}/assets/logo-lockup.png` } }
   };
-  return layout({ title, description, canonical, body, jsonLd });
+  return layout({
+    title,
+    description,
+    canonical,
+    body,
+    jsonLd,
+    breadcrumbs: [
+      { name: "Home", href: "../index.html", url: `${site}/` },
+      { name: "Video Intelligence", href: "../topics.html", url: `${site}/topics.html` },
+      { name: video.topic, href: `../topics/${id}.html`, url: canonical },
+    ],
+  });
 }
 
 function writeSitemap(products, videos, guideUrls = []) {
@@ -460,6 +507,10 @@ function writeGuideIndex(data) {
     lang: "en",
     assetPrefix: "./",
     navPrefix: "./",
+    breadcrumbs: [
+      { name: "Home", href: "./index.html", url: `${site}/` },
+      { name: "AI Search Guides", href: "./guides.html", url: `${site}/guides.html` },
+    ],
   });
 }
 
@@ -603,6 +654,11 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
     lang: "en",
     assetPrefix: "../",
     navPrefix: "../",
+    breadcrumbs: [
+      { name: "Home", href: "../index.html", url: `${site}/` },
+      { name: "AI Search Guides", href: "../guides.html", url: `${site}/guides.html` },
+      { name: h1, href: `../guides/${slugName}.html`, url: canonical },
+    ],
   });
 }
 
