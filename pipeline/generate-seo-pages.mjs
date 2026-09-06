@@ -432,6 +432,7 @@ function topicPage(video, data) {
 }
 
 function writeSitemap(products, videos, guideUrls = []) {
+  const lastmod = new Date().toISOString();
   const baseUrls = ["/", "/products.html", "/en/products.html", "/guides.html", "/topics.html", "/search.html", "/channels.html", "/subscribe.html", "/pricing.html", "/pipeline.html"];
   const productUrls = products.flatMap((product) => [`/products/${slug(product.id || product.name)}.html`, `/en/products/${slug(product.id || product.name)}.html`]);
   const topicUrls = videos.slice(0, 40).map((video) => `/topics/${slug(video.videoId || video.topic)}.html`);
@@ -451,7 +452,7 @@ function writeSitemap(products, videos, guideUrls = []) {
     }
     return "";
   };
-  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : url === "/guides.html" || guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
+  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : url === "/guides.html" || guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
   fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`);
 }
 

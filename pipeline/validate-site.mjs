@@ -181,6 +181,9 @@ if (!sitemap.includes("/guides/claude-code-vs-cursor.html")) {
 if (!sitemap.includes("/guides.html")) {
   errors.push("sitemap.xml should include the AI search guide hub.");
 }
+if (!/<lastmod>\d{4}-\d{2}-\d{2}T/.test(sitemap)) {
+  errors.push("sitemap.xml should include ISO lastmod timestamps for Google freshness.");
+}
 if (!robots.includes("indexnow-key.txt")) {
   errors.push("robots.txt should expose the IndexNow key location.");
 }
