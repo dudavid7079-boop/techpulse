@@ -3314,6 +3314,62 @@ input {
   align-content: start;
 }
 
+.comparison-table {
+  display: grid;
+  gap: 0;
+  margin-top: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.comparison-table > div {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.72fr) repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.comparison-table > div:first-child {
+  border-top: 0;
+  background: #eef5ff;
+}
+
+.comparison-table strong,
+.comparison-table span,
+.comparison-table p {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  border-left: 1px solid var(--line);
+  line-height: 1.55;
+}
+
+.comparison-table strong:first-child,
+.comparison-table span:first-child {
+  border-left: 0;
+}
+
+.comparison-table strong,
+.comparison-table span {
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.comparison-table p {
+  color: #475569;
+}
+
+.guide-evaluation-grid ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #334155;
+  line-height: 1.6;
+}
+
 .fit-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -3389,6 +3445,22 @@ input {
 
   .product-card-actions {
     grid-template-columns: 1fr;
+  }
+
+  .comparison-table > div {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table strong,
+  .comparison-table span,
+  .comparison-table p {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .comparison-table > div:first-child strong:first-child,
+  .comparison-table span:first-child {
+    border-top: 0;
   }
 
   .product-rank {

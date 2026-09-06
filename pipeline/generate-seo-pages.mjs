@@ -105,7 +105,7 @@ function englishProductSummary(product) {
   const stars = product.sourceSignals?.github?.stars || 0;
   const hnMatches = product.sourceSignals?.hackerNews?.matches || 0;
   const videoCount = (product.videos || []).length;
-  return `${product.name} is an AI product tracked by TechPulse. This profile combines ${repoCount} related GitHub repositories, ${stars} stars, ${hnMatches} Hacker News discussions, and ${videoCount} video proof signals so readers can judge whether it is worth watching.`;
+  return `${product.name} is an AI product tracked by TechPulse. This profile combines ${repoCount} related GitHub ${repoCount === 1 ? "repository" : "repositories"}, ${stars} stars, ${hnMatches} Hacker News ${hnMatches === 1 ? "discussion" : "discussions"}, and ${videoCount} video proof ${videoCount === 1 ? "signal" : "signals"} so readers can judge whether it is worth watching.`;
 }
 
 function findProduct(products, idOrName) {
@@ -119,7 +119,7 @@ function productEvidenceLine(product) {
   const hnMatches = product?.sourceSignals?.hackerNews?.matches || 0;
   const comments = product?.sourceSignals?.hackerNews?.comments || 0;
   const videoCount = (product?.videos || []).length;
-  return `${repoCount} GitHub repos, ${stars} stars, ${hnMatches} HN discussions, ${comments} comments, ${videoCount} video proof signals`;
+  return `${repoCount} GitHub ${repoCount === 1 ? "repo" : "repos"}, ${stars} stars, ${hnMatches} HN ${hnMatches === 1 ? "discussion" : "discussions"}, ${comments} ${comments === 1 ? "comment" : "comments"}, ${videoCount} video proof ${videoCount === 1 ? "signal" : "signals"}`;
 }
 
 function guideLinkGrid(currentSlug = "") {
@@ -324,7 +324,7 @@ function productPageEn(product, data) {
         <aside class="product-hero-panel">
           <span>Signal Score</span>
           <strong>${escapeHTML(product.signalScore || 0)}</strong>
-          <p>GitHub · Hacker News · ${escapeHTML(videoCount)} video proof signals</p>
+          <p>GitHub · Hacker News · ${escapeHTML(videoCount)} video proof ${videoCount === 1 ? "signal" : "signals"}</p>
         </aside>
       </section>
       <section class="product-workbench seo-article">
@@ -521,7 +521,7 @@ function writeEnglishProductIndex(products, data) {
           <article class="product-radar-card">
             <div class="product-rank"><b>${String(index + 1).padStart(2, "0")}</b><span>Signal ${escapeHTML(product.signalScore || 0)}</span></div>
             <div class="product-card-body">
-              <div class="product-card-meta"><span>${escapeHTML(product.category || "AI Product")}</span><span>${escapeHTML(product.signalTrend || "+0")} today</span><span>${escapeHTML((product.videos || []).length)} video proofs</span></div>
+              <div class="product-card-meta"><span>${escapeHTML(product.category || "AI Product")}</span><span>${escapeHTML(product.signalTrend || "+0")} today</span><span>${escapeHTML((product.videos || []).length)} video ${(product.videos || []).length === 1 ? "proof" : "proofs"}</span></div>
               <h2>${escapeHTML(product.name)}</h2>
               <p>${escapeHTML(englishProductSummary(product))}</p>
               <div class="product-tags"><span>GitHub evidence</span><span>Hacker News discussion</span><span>Video proof</span></div>
@@ -621,6 +621,28 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
               ${faq.map((item) => `<h3>${escapeHTML(item.q)}</h3><p>${escapeHTML(item.a)}</p>`).join("")}
             </article>
           </section>` : "";
+  const evaluationHtml = `
+          <section class="source-evidence guide-evaluation-grid">
+            <article>
+              <h2>How TechPulse reads this category</h2>
+              <p>For Google search users, this guide is written as a decision page rather than a launch announcement. TechPulse weighs public proof that a tool is being used, discussed, maintained, and compared by builders.</p>
+              <ul>
+                <li><strong>Adoption signal:</strong> GitHub repositories, stars, forks, and freshness show whether builders are trying the product or ecosystem.</li>
+                <li><strong>Discussion signal:</strong> Hacker News comments and technical debates show whether engineers are evaluating trade-offs, not just reacting to marketing.</li>
+                <li><strong>Workflow signal:</strong> Video proof and product profiles help separate real usage patterns from short-lived demos.</li>
+              </ul>
+            </article>
+            <article>
+              <h2>Before adopting any tool</h2>
+              <p>Use this checklist before turning a search result into a team decision.</p>
+              <ul>
+                <li>Run a small task from your own repository or workflow.</li>
+                <li>Check whether generated changes are easy to review and roll back.</li>
+                <li>Confirm pricing, data retention, model routing, and permission boundaries.</li>
+                <li>Compare the tool against your current baseline, not only against its competitors.</li>
+              </ul>
+            </article>
+          </section>`;
   const body = `
       <section class="page-hero product-hero">
         <div class="product-hero-copy">
@@ -641,6 +663,7 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
             <p>${escapeHTML(intro)}</p>
           </section>
           ${sectionHtml}
+          ${evaluationHtml}
           ${faqHtml}
           ${guideLinkGrid(slugName)}
         </article>
@@ -662,11 +685,75 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
   });
 }
 
+function signalBadge(product) {
+  return `Signal ${escapeHTML(product.signalScore || 0)} · ${escapeHTML(productEvidenceLine(product))}`;
+}
+
 function productComparisonTable(left, right) {
+  const rows = [
+    ["Best workflow fit", workflowFit(left), workflowFit(right)],
+    ["Primary adoption proof", primaryProof(left), primaryProof(right)],
+    ["Team evaluation angle", teamEvaluationAngle(left), teamEvaluationAngle(right)],
+    ["Main risk to test", adoptionRisk(left), adoptionRisk(right)],
+  ];
   return `<div class="source-list">
-    <a href="../en/products/${slug(left.id || left.name)}.html"><strong>${escapeHTML(left.name)}</strong><span>Signal ${escapeHTML(left.signalScore || 0)} · ${escapeHTML(productEvidenceLine(left))}</span><p>${escapeHTML(englishProductSummary(left))}</p></a>
-    <a href="../en/products/${slug(right.id || right.name)}.html"><strong>${escapeHTML(right.name)}</strong><span>Signal ${escapeHTML(right.signalScore || 0)} · ${escapeHTML(productEvidenceLine(right))}</span><p>${escapeHTML(englishProductSummary(right))}</p></a>
+    <a href="../en/products/${slug(left.id || left.name)}.html"><strong>${escapeHTML(left.name)}</strong><span>${signalBadge(left)}</span><p>${escapeHTML(englishProductSummary(left))}</p></a>
+    <a href="../en/products/${slug(right.id || right.name)}.html"><strong>${escapeHTML(right.name)}</strong><span>${signalBadge(right)}</span><p>${escapeHTML(englishProductSummary(right))}</p></a>
+  </div>
+  <div class="comparison-table" role="table" aria-label="${escapeAttr(left.name)} vs ${escapeAttr(right.name)} comparison">
+    <div role="row"><strong role="columnheader">Decision factor</strong><strong role="columnheader">${escapeHTML(left.name)}</strong><strong role="columnheader">${escapeHTML(right.name)}</strong></div>
+    ${rows.map((row) => `<div role="row"><span role="rowheader">${escapeHTML(row[0])}</span><p role="cell">${escapeHTML(row[1])}</p><p role="cell">${escapeHTML(row[2])}</p></div>`).join("")}
   </div>`;
+}
+
+function workflowFit(product) {
+  const value = `${product.name || ""} ${product.category || ""}`.toLowerCase();
+  if (value.includes("cursor")) return "IDE-centered coding, codebase navigation, autocomplete, and daily editor workflow.";
+  if (value.includes("claude code")) return "Terminal-native agent tasks, repository edits, command execution, and reviewable multi-file changes.";
+  if (value.includes("gemini")) return "Command-line assistance for teams already testing Google AI developer workflows.";
+  if (value.includes("langchain")) return "Code-first LLM application engineering with custom integrations and production ownership.";
+  if (value.includes("flowise") || value.includes("langflow")) return "Visual workflow prototyping, stakeholder demos, and lower-friction LLM orchestration.";
+  if (value.includes("dify")) return "Packaged AI app building with prompt operations, datasets, and deployment-oriented features.";
+  if (value.includes("openhands")) return "Open-source software-engineering agents that need environment control and task execution.";
+  if (value.includes("autogpt")) return "Autonomous agent experiments and historical reference for open-source agent patterns.";
+  return "AI product research where source evidence and workflow fit matter more than brand awareness.";
+}
+
+function primaryProof(product) {
+  const github = product.sourceSignals?.github;
+  const hn = product.sourceSignals?.hackerNews;
+  const videos = product.videos || [];
+  const parts = [];
+  if (github?.repoCount) parts.push(`${github.repoCount} tracked GitHub ${github.repoCount === 1 ? "repo" : "repos"}`);
+  if (github?.stars) parts.push(`${github.stars} stars`);
+  if (hn?.matches) parts.push(`${hn.matches} HN ${hn.matches === 1 ? "match" : "matches"}`);
+  if (videos.length) parts.push(`${videos.length} video proof ${videos.length === 1 ? "signal" : "signals"}`);
+  return parts.length ? parts.join(", ") : "Public source evidence is still being collected by the daily refresh.";
+}
+
+function teamEvaluationAngle(product) {
+  const value = `${product.name || ""} ${product.category || ""}`.toLowerCase();
+  if (value.includes("lang") || value.includes("flow") || value.includes("dify")) {
+    return "Evaluate connectors, observability, handoff from prototype to production, and ownership by technical teams.";
+  }
+  if (value.includes("coding") || value.includes("cursor") || value.includes("claude") || value.includes("gemini")) {
+    return "Compare code review quality, repository context, permission boundaries, and how the tool changes developer flow.";
+  }
+  if (value.includes("agent") || value.includes("autogpt") || value.includes("openhands")) {
+    return "Test sandboxing, command scope, secret handling, failure recovery, and whether outputs are reproducible.";
+  }
+  return "Check whether the public signal maps to your actual workflow, budget, security rules, and maintenance expectations.";
+}
+
+function adoptionRisk(product) {
+  const value = `${product.name || ""} ${product.category || ""}`.toLowerCase();
+  if (value.includes("cursor")) return "IDE lock-in, code privacy expectations, and whether AI edits remain easy to review.";
+  if (value.includes("claude") || value.includes("gemini")) return "Command execution scope, repository permissions, and cost control during agentic tasks.";
+  if (value.includes("mcp")) return "Server trust, permission models, enterprise governance, and connector maintenance.";
+  if (value.includes("langchain")) return "Framework complexity, version churn, and whether abstractions stay useful in production.";
+  if (value.includes("flowise") || value.includes("langflow") || value.includes("dify")) return "Prototype-to-production handoff, security controls, and deployment ownership.";
+  if (value.includes("agent") || value.includes("autogpt") || value.includes("openhands")) return "Autonomous execution safety, logs, rollback, and human review boundaries.";
+  return "Signal quality, vendor durability, integration depth, and hidden operational cost.";
 }
 
 function writeGuidePages(products, data) {
