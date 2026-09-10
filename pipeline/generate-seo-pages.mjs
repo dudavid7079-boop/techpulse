@@ -464,19 +464,37 @@ function writeGuideIndex(data) {
             <span>Google search guide</span>
             <p>${escapeHTML(guide.description)}</p>
           </a>`).join("");
+  const guideItems = searchGuides.map((guide, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: `${site}/guides/${guide.slugName}.html`,
+    name: guide.title,
+    description: guide.description,
+  }));
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "TechPulse AI Search Guides",
-    description: "AI tool comparison guides and source-backed research pages for Google search users.",
-    url: `${site}/guides.html`,
-    inLanguage: "en",
-    dateModified: generatedAt,
-    hasPart: searchGuides.map((guide) => ({
-      "@type": "Article",
-      name: guide.title,
-      url: `${site}/guides/${guide.slugName}.html`,
-    })),
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "TechPulse AI Search Guides",
+        description: "AI tool comparison guides and source-backed research pages for Google search users.",
+        url: `${site}/guides.html`,
+        inLanguage: "en",
+        dateModified: generatedAt,
+        hasPart: searchGuides.map((guide) => ({
+          "@type": "Article",
+          name: guide.title,
+          url: `${site}/guides/${guide.slugName}.html`,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "TechPulse AI tool comparison guide list",
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        numberOfItems: searchGuides.length,
+        itemListElement: guideItems,
+      },
+    ],
   };
   const body = `
       <section class="page-hero product-hero">
@@ -1034,22 +1052,23 @@ const productData = readWindowJson(productDataPath, "TechPulseProducts");
 const siteData = readWindowJson(siteDataPath, "TechPulseData");
 const products = productData.products || [];
 const videos = siteData.videos || [];
+const generatedAt = new Date().toISOString();
 
 for (const product of products) {
-  fs.writeFileSync(path.join(productsDir, `${slug(product.id || product.name)}.html`), productPage(product, { ...siteData, generatedAt: productData.generatedAt || siteData.generatedAt }));
-  fs.writeFileSync(path.join(enProductsDir, `${slug(product.id || product.name)}.html`), productPageEn(product, { ...siteData, generatedAt: productData.generatedAt || siteData.generatedAt }));
+  fs.writeFileSync(path.join(productsDir, `${slug(product.id || product.name)}.html`), productPage(product, { ...siteData, generatedAt }));
+  fs.writeFileSync(path.join(enProductsDir, `${slug(product.id || product.name)}.html`), productPageEn(product, { ...siteData, generatedAt }));
 }
 
-fs.writeFileSync(path.join(enDir, "products.html"), writeEnglishProductIndex(products, { generatedAt: productData.generatedAt || siteData.generatedAt }));
-const guideUrls = writeGuidePages(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
-fs.writeFileSync(path.join(root, "guides.html"), writeGuideIndex({ generatedAt: productData.generatedAt || siteData.generatedAt }));
+fs.writeFileSync(path.join(enDir, "products.html"), writeEnglishProductIndex(products, { generatedAt }));
+const guideUrls = writeGuidePages(products, { generatedAt });
+fs.writeFileSync(path.join(root, "guides.html"), writeGuideIndex({ generatedAt }));
 
 for (const video of videos.slice(0, 40)) {
-  fs.writeFileSync(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), topicPage(video, siteData));
+  fs.writeFileSync(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), topicPage(video, { ...siteData, generatedAt }));
 }
 
 writeSitemap(products, videos, guideUrls);
-writeFeed(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt });
-writeProductsJson(products, { generatedAt: productData.generatedAt || siteData.generatedAt });
-writeLlms(products, videos, { generatedAt: productData.generatedAt || siteData.generatedAt }, guideUrls);
+writeFeed(products, videos, { generatedAt });
+writeProductsJson(products, { generatedAt });
+writeLlms(products, videos, { generatedAt }, guideUrls);
 console.log(`Generated ${products.length} zh product pages, ${products.length} en product pages, ${guideUrls.length} guide pages, ${Math.min(videos.length, 40)} topic pages, sitemap.xml, feed.xml, ai-products.json, llms.txt`);

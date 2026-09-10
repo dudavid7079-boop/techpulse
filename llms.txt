@@ -2,7 +2,7 @@
 
 TechPulse 是一个面向中文用户的全球 AI 产品雷达和海外科技视频情报站。它聚合 GitHub、Hacker News、公开视频摘要和信号分，帮助用户判断 AI 产品是否值得试用、跟进或研究。
 
-Last updated: 2026-07-07T09:54:59.839Z
+Last updated: 2026-09-10T04:43:12.544Z
 
 ## Core pages
 - Home: https://techpulse.attodigitalhk.com/

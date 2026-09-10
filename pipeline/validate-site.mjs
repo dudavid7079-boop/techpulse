@@ -184,6 +184,9 @@ if (!sitemap.includes("/guides.html")) {
 if (!/<lastmod>\d{4}-\d{2}-\d{2}T/.test(sitemap)) {
   errors.push("sitemap.xml should include ISO lastmod timestamps for Google freshness.");
 }
+if (!read("guides.html").includes('"@type":"ItemList"')) {
+  errors.push("guides.html should include ItemList structured data for guide discovery.");
+}
 if (!robots.includes("indexnow-key.txt")) {
   errors.push("robots.txt should expose the IndexNow key location.");
 }
