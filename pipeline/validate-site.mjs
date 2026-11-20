@@ -181,8 +181,16 @@ if (!sitemap.includes("/guides/claude-code-vs-cursor.html")) {
 if (!sitemap.includes("/guides.html")) {
   errors.push("sitemap.xml should include the AI search guide hub.");
 }
-if (!/<lastmod>\d{4}-\d{2}-\d{2}T/.test(sitemap)) {
-  errors.push("sitemap.xml should include ISO lastmod timestamps for Google freshness.");
+const sitemapEntries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
+const guideEntry = sitemapEntries.find((entry) => entry.includes("<loc>https://techpulse.attodigitalhk.com/guides.html</loc>"));
+const guideLastmod = guideEntry?.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+const guideModified = read("guides.html").match(/"dateModified":"([^"]+)"/)?.[1];
+if (!guideLastmod || guideLastmod !== guideModified || Number.isNaN(Date.parse(guideLastmod))) {
+  errors.push("sitemap.xml guide lastmod should match the guide's actual modification date.");
+}
+const homeEntry = sitemapEntries.find((entry) => entry.includes("<loc>https://techpulse.attodigitalhk.com/</loc>"));
+if (homeEntry?.includes("<lastmod>")) {
+  errors.push("sitemap.xml should not claim a modification date for the undated homepage.");
 }
 if (!read("guides.html").includes('"@type":"ItemList"')) {
   errors.push("guides.html should include ItemList structured data for guide discovery.");

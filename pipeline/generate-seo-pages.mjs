@@ -49,7 +49,7 @@ const searchGuides = [
   {
     slugName: "best-open-source-ai-agent-frameworks",
     title: "Best open-source AI agent frameworks",
-    description: "A Google-friendly research shortlist from public signals.",
+    description: "A research shortlist grounded in public project signals.",
   },
 ];
 
@@ -126,11 +126,11 @@ function guideLinkGrid(currentSlug = "") {
   const links = searchGuides
     .filter((guide) => guide.slugName !== currentSlug)
     .slice(0, 6)
-    .map((guide) => `<a href="${site}/guides/${guide.slugName}.html"><strong>${escapeHTML(guide.title)}</strong><span>Google search guide</span><p>${escapeHTML(guide.description)}</p></a>`)
+    .map((guide) => `<a href="${site}/guides/${guide.slugName}.html"><strong>${escapeHTML(guide.title)}</strong><span>Comparison guide</span><p>${escapeHTML(guide.description)}</p></a>`)
     .join("");
   return `<section class="source-evidence guide-link-section">
             <article>
-              <h2>Related AI search guides</h2>
+              <h2>Related AI tool guides</h2>
               <div class="source-list guide-link-grid">${links}</div>
             </article>
           </section>`;
@@ -409,12 +409,14 @@ function topicPage(video, data) {
       </section>`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: video.topic,
+    "@type": "Article",
+    headline: video.topic,
     description,
-    uploadDate: data.generatedAt,
-    embedUrl: video.videoId ? `https://www.youtube-nocookie.com/embed/${video.videoId}` : undefined,
     url: canonical,
+    dateModified: data.generatedAt,
+    inLanguage: "zh-CN",
+    citation: youtubeUrl,
+    author: { "@type": "Organization", name: "TechPulse 科技脉动" },
     publisher: { "@type": "Organization", name: "TechPulse 科技脉动", logo: { "@type": "ImageObject", url: `${site}/assets/logo-lockup.png` } }
   };
   return layout({
@@ -431,8 +433,21 @@ function topicPage(video, data) {
   });
 }
 
+function writeIfChanged(filePath, content) {
+  if (fs.existsSync(filePath) && fs.readFileSync(filePath, "utf8") === content) return;
+  fs.writeFileSync(filePath, content);
+}
+
+function writeDatedPage(filePath, render, generatedAt) {
+  const previous = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+  const previousDate = previous.match(/"dateModified":"([^"]+)"/)?.[1];
+  if (previousDate && !Number.isNaN(Date.parse(previousDate)) && render(previousDate) === previous) {
+    return;
+  }
+  writeIfChanged(filePath, render(generatedAt));
+}
+
 function writeSitemap(products, videos, guideUrls = []) {
-  const lastmod = new Date().toISOString();
   const baseUrls = ["/", "/products.html", "/en/products.html", "/guides.html", "/topics.html", "/search.html", "/channels.html", "/subscribe.html", "/pricing.html", "/pipeline.html"];
   const productUrls = products.flatMap((product) => [`/products/${slug(product.id || product.name)}.html`, `/en/products/${slug(product.id || product.name)}.html`]);
   const topicUrls = videos.slice(0, 40).map((video) => `/topics/${slug(video.videoId || video.topic)}.html`);
@@ -452,8 +467,13 @@ function writeSitemap(products, videos, guideUrls = []) {
     }
     return "";
   };
-  const body = urls.map((url, index) => `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${index < 4 || guideUrls.includes(url) ? "daily" : "weekly"}</changefreq>\n    <priority>${index === 0 ? "1.0" : url === "/guides.html" || guideUrls.includes(url) ? "0.9" : productUrls.includes(url) ? "0.85" : topicUrls.includes(url) ? "0.75" : "0.7"}</priority>\n  </url>`).join("\n");
-  fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`);
+  const body = urls.map((url) => {
+    const filePath = path.join(root, url === "/" ? "index.html" : url.slice(1));
+    const html = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+    const lastmod = html.match(/"dateModified":"(\d{4}-\d{2}-\d{2}T[^"]+)"/)?.[1];
+    return `  <url>\n    <loc>${site}${url}</loc>${alternateTags(url)}${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ""}\n  </url>`;
+  }).join("\n");
+  writeIfChanged(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`);
 }
 
 function writeGuideIndex(data) {
@@ -461,7 +481,7 @@ function writeGuideIndex(data) {
   const cards = searchGuides.map((guide, index) => `
           <a href="./guides/${guide.slugName}.html">
             <strong>${String(index + 1).padStart(2, "0")} · ${escapeHTML(guide.title)}</strong>
-            <span>Google search guide</span>
+            <span>Comparison guide</span>
             <p>${escapeHTML(guide.description)}</p>
           </a>`).join("");
   const guideItems = searchGuides.map((guide, index) => ({
@@ -476,8 +496,8 @@ function writeGuideIndex(data) {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: "TechPulse AI Search Guides",
-        description: "AI tool comparison guides and source-backed research pages for Google search users.",
+        name: "TechPulse AI Tool Guides",
+        description: "AI tool comparisons and research pages grounded in public sources.",
         url: `${site}/guides.html`,
         inLanguage: "en",
         dateModified: generatedAt,
@@ -499,14 +519,14 @@ function writeGuideIndex(data) {
   const body = `
       <section class="page-hero product-hero">
         <div class="product-hero-copy">
-          <span class="section-label">Google Search Guides</span>
+          <span class="section-label">AI Tool Guides</span>
           <h1>AI tool comparisons built from public engineering signals.</h1>
           <p>Use TechPulse guides to compare AI coding tools, agent frameworks, workflow builders, and MCP infrastructure through GitHub, Hacker News, and video proof signals.</p>
         </div>
         <aside class="product-hero-panel">
           <span>Guide Index</span>
-          <strong>${String(searchGuides.length).padStart(2, "0")} search pages</strong>
-          <p>Designed as a crawlable hub for high-intent Google queries and internal discovery.</p>
+          <strong>${String(searchGuides.length).padStart(2, "0")} guides</strong>
+          <p>Compare workflows, evidence, and adoption risks before trying a tool.</p>
         </aside>
       </section>
       <section class="section guide-link-section">
@@ -519,7 +539,7 @@ function writeGuideIndex(data) {
       </section>`;
   return layout({
     title: "AI Tool Comparison Guides - TechPulse",
-    description: "TechPulse AI search guides compare AI coding tools, open-source agent frameworks, workflow builders, and MCP infrastructure using public signals.",
+    description: "Compare AI coding tools, open-source agent frameworks, workflow builders, and MCP infrastructure using public signals.",
     canonical: `${site}/guides.html`,
     body,
     jsonLd,
@@ -528,7 +548,7 @@ function writeGuideIndex(data) {
     navPrefix: "./",
     breadcrumbs: [
       { name: "Home", href: "./index.html", url: `${site}/` },
-      { name: "AI Search Guides", href: "./guides.html", url: `${site}/guides.html` },
+      { name: "AI Tool Guides", href: "./guides.html", url: `${site}/guides.html` },
     ],
   });
 }
@@ -644,7 +664,7 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
           <section class="source-evidence guide-evaluation-grid">
             <article>
               <h2>How TechPulse reads this category</h2>
-              <p>For Google search users, this guide is written as a decision page rather than a launch announcement. TechPulse weighs public proof that a tool is being used, discussed, maintained, and compared by builders.</p>
+              <p>TechPulse weighs public evidence that a tool is being used, discussed, maintained, and compared by builders. These signals are a starting point, not a substitute for hands-on testing.</p>
               <ul>
                 <li><strong>Adoption signal:</strong> GitHub repositories, stars, forks, and freshness show whether builders are trying the product or ecosystem.</li>
                 <li><strong>Discussion signal:</strong> Hacker News comments and technical debates show whether engineers are evaluating trade-offs, not just reacting to marketing.</li>
@@ -653,7 +673,7 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
             </article>
             <article>
               <h2>Before adopting any tool</h2>
-              <p>Use this checklist before turning a search result into a team decision.</p>
+              <p>Use this checklist before making a team decision.</p>
               <ul>
                 <li>Run a small task from your own repository or workflow.</li>
                 <li>Check whether generated changes are easy to review and roll back.</li>
@@ -698,7 +718,7 @@ function guidePage({ slugName, title, description, heroLabel, h1, intro, section
     navPrefix: "../",
     breadcrumbs: [
       { name: "Home", href: "../index.html", url: `${site}/` },
-      { name: "AI Search Guides", href: "../guides.html", url: `${site}/guides.html` },
+      { name: "AI Tool Guides", href: "../guides.html", url: `${site}/guides.html` },
       { name: h1, href: `../guides/${slugName}.html`, url: canonical },
     ],
   });
@@ -938,7 +958,7 @@ function writeGuidePages(products, data) {
     },
   ];
   for (const page of pages) {
-    fs.writeFileSync(path.join(guidesDir, `${page.slugName}.html`), guidePage({ ...page, generatedAt }));
+    writeDatedPage(path.join(guidesDir, `${page.slugName}.html`), (dateModified) => guidePage({ ...page, generatedAt: dateModified }), generatedAt);
   }
   return pages.map((page) => `/guides/${page.slugName}.html`);
 }
@@ -1055,16 +1075,16 @@ const videos = siteData.videos || [];
 const generatedAt = new Date().toISOString();
 
 for (const product of products) {
-  fs.writeFileSync(path.join(productsDir, `${slug(product.id || product.name)}.html`), productPage(product, { ...siteData, generatedAt }));
-  fs.writeFileSync(path.join(enProductsDir, `${slug(product.id || product.name)}.html`), productPageEn(product, { ...siteData, generatedAt }));
+  writeDatedPage(path.join(productsDir, `${slug(product.id || product.name)}.html`), (dateModified) => productPage(product, { ...siteData, generatedAt: dateModified }), generatedAt);
+  writeDatedPage(path.join(enProductsDir, `${slug(product.id || product.name)}.html`), (dateModified) => productPageEn(product, { ...siteData, generatedAt: dateModified }), generatedAt);
 }
 
-fs.writeFileSync(path.join(enDir, "products.html"), writeEnglishProductIndex(products, { generatedAt }));
+writeDatedPage(path.join(enDir, "products.html"), (dateModified) => writeEnglishProductIndex(products, { generatedAt: dateModified }), generatedAt);
 const guideUrls = writeGuidePages(products, { generatedAt });
-fs.writeFileSync(path.join(root, "guides.html"), writeGuideIndex({ generatedAt }));
+writeDatedPage(path.join(root, "guides.html"), (dateModified) => writeGuideIndex({ generatedAt: dateModified }), generatedAt);
 
 for (const video of videos.slice(0, 40)) {
-  fs.writeFileSync(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), topicPage(video, { ...siteData, generatedAt }));
+  writeDatedPage(path.join(topicsDir, `${slug(video.videoId || video.topic)}.html`), (dateModified) => topicPage(video, { ...siteData, generatedAt: dateModified }), generatedAt);
 }
 
 writeSitemap(products, videos, guideUrls);
